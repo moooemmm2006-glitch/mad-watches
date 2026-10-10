@@ -27,7 +27,7 @@ const STORE = {
   whatsapp: "201096452755",
   instagram: "https://www.instagram.com/madwatches1/",
   tiktok: "https://www.tiktok.com/@mad.watches",
-  facebook: "",                                          // ← paste your Facebook page link here later
+  facebook: "https://www.facebook.com/profile.php?id=61592099123668",
 
   /* --- Other contact details --- */
   email: "moooemmm2006@gmail.com",
