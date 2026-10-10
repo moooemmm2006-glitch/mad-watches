@@ -1,0 +1,10 @@
+# Mad Watches — instructions for search engines
+# Replace https://example.com with your real domain.
+
+User-agent: *
+Allow: /
+Disallow: /docs/
+Disallow: /cart.html
+Disallow: /wishlist.html
+
+Sitemap: https://example.com/sitemap.xml

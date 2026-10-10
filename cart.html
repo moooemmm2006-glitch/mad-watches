@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart | Mad Watches</title>
+  <meta name="description" content="Your shopping cart and checkout at Mad Watches. Cash on delivery, confirmation on WhatsApp." />
+  <meta name="theme-color" content="#0A2C47" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://example.com/cart.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Your Cart | Mad Watches" />
+  <meta property="og:description" content="Your shopping cart and checkout at Mad Watches. Cash on delivery, confirmation on WhatsApp." />
+  <meta property="og:url" content="https://example.com/cart.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your Cart | Mad Watches" />
+  <meta name="twitter:description" content="Your shopping cart and checkout at Mad Watches. Cash on delivery, confirmation on WhatsApp." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="cart" data-trust="off">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <section class="page-head page-head--compact">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.cart">Cart</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="cart.eyebrow">Your order</span></p>
+        <h1 class="title" id="cartHeading" data-i18n="cart.title">Shopping cart</h1>
+        <p class="lead" id="cartItemCount"></p>
+      </div>
+    </section>
+
+    <!-- =================== CART + CHECKOUT =================== -->
+    <div class="container cart-page" id="cartPage" hidden>
+      <div class="cart-page__main">
+
+        <!-- Items -->
+        <ul class="cart-lines" id="cartLines"></ul>
+
+        <!-- Gift mode -->
+        <section class="gift" aria-labelledby="giftTitle">
+          <h2 class="gift__title" id="giftTitle"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="8" width="17" height="4"/><path d="M5 12v8.5h14V12M12 8v12.5M12 8S10.5 3.5 8 4.2 8.5 8 12 8Zm0 0s1.5-4.5 4-3.8S15.5 8 12 8Z"/></svg><span data-i18n="cart.giftTitle">Gift mode</span></h2>
+          <label class="check"><input type="checkbox" id="giftWrap" /><span id="giftWrapLabel"></span></label>
+          <label class="check"><input type="checkbox" id="giftCard" /><span data-i18n="cart.giftCard">Add a message card (free)</span></label>
+          <div class="field gift__message" id="giftMessageField" hidden>
+            <label for="giftMessage" data-i18n="cart.giftMessage">Your message</label>
+            <textarea id="giftMessage" rows="3" maxlength="240"></textarea>
+          </div>
+        </section>
+
+        <!-- Delivery details -->
+        <form class="checkout form-card" id="checkoutForm" novalidate aria-labelledby="checkoutTitle">
+          <h2 class="checkout__title" id="checkoutTitle"><span class="eyebrow__num" lang="en">II</span><span data-i18n="checkout.title">Delivery details</span></h2>
+          <div class="checkout__grid">
+            <div class="field">
+              <label for="coName" data-i18n="checkout.name">Full name</label>
+              <input id="coName" name="name" type="text" autocomplete="name" maxlength="80" required />
+              <p class="field__error" id="coNameError"></p>
+            </div>
+            <div class="field">
+              <label for="coPhone" data-i18n="checkout.phone">Mobile number</label>
+              <input id="coPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" dir="ltr" data-i18n-attr="placeholder:checkout.phoneHint" required />
+              <p class="field__error" id="coPhoneError"></p>
+            </div>
+            <div class="field">
+              <label for="coGovernorate" data-i18n="checkout.governorate">Governorate</label>
+              <select id="coGovernorate" name="governorate" autocomplete="address-level1" required></select>
+              <p class="field__error" id="coGovernorateError"></p>
+            </div>
+            <div class="field">
+              <label for="coCity" data-i18n="checkout.city">City / area</label>
+              <input id="coCity" name="city" type="text" autocomplete="address-level2" maxlength="80" required />
+              <p class="field__error" id="coCityError"></p>
+            </div>
+            <div class="field checkout__wide">
+              <label for="coAddress" data-i18n="checkout.address">Detailed address</label>
+              <textarea id="coAddress" name="address" rows="2" autocomplete="street-address" maxlength="300" data-i18n-attr="placeholder:checkout.addressHint" required></textarea>
+              <p class="field__error" id="coAddressError"></p>
+            </div>
+            <div class="field checkout__wide">
+              <label for="coNotes" data-i18n="checkout.notes">Notes (optional)</label>
+              <textarea id="coNotes" name="notes" rows="2" maxlength="300" data-i18n-attr="placeholder:checkout.notesHint"></textarea>
+            </div>
+          </div>
+          <fieldset class="payment">
+            <legend class="field__label" data-i18n="checkout.payment">Payment method</legend>
+            <div id="paymentOptions"></div>
+          </fieldset>
+          <!-- spam trap: hidden from people, bots fill it in -->
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        </form>
+      </div>
+
+      <!-- Order summary + confirm button -->
+      <aside class="summary" aria-labelledby="summaryTitle">
+        <h2 class="summary__title" id="summaryTitle" data-i18n="cart.summary">Order summary</h2>
+
+        <!-- First order discount (STORE.firstOrderDiscount / STORE.firstOrderCode) -->
+        <div class="promo" id="promo">
+          <p class="promo__applied" id="promoApplied" role="status" hidden></p>
+          <form class="promo__form" id="promoForm" novalidate>
+            <label class="promo__label" for="promoCode" data-i18n="promo.label">Have a discount code?</label>
+            <div class="promo__row">
+              <input id="promoCode" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="30" dir="ltr" />
+              <button class="btn btn--small btn--ghost" type="submit" data-i18n="promo.apply">Apply</button>
+            </div>
+            <p class="field__error" id="promoError" role="alert"></p>
+          </form>
+        </div>
+
+        <dl class="summary__rows" id="summaryRows"></dl>
+        <button class="btn btn--block" type="submit" form="checkoutForm" id="confirmBtn"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.1-3.9A8.4 8.4 0 1 1 20 11.6Z"/><path d="M9 8.6c0 3.4 3 6.4 6.4 6.4l1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.2-2.2l.8-1-1-2-1.5 1Z"/></svg><span id="confirmLabel" data-i18n="checkout.confirm">Confirm order on WhatsApp</span></button>
+        <ul class="reassure reassure--stack" id="reassure"></ul>
+        <a class="link summary__continue" href="products.html" data-i18n="cart.continue">Continue shopping</a>
+      </aside>
+    </div>
+
+    <!-- =================== EMPTY CART =================== -->
+    <section class="container empty" id="cartEmpty" hidden>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8h13l-1 12.5h-11L5.5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg>
+      <p class="empty__title" data-i18n="cart.emptyTitle">Your cart is empty</p>
+      <p class="lead" data-i18n="cart.emptyText">Find a watch you love. It will wait for you here.</p>
+      <a class="btn" href="products.html" data-i18n="cart.emptyButton">Start shopping</a>
+    </section>
+
+    <!-- =================== CONFIRMATION =================== -->
+    <section class="container confirm" id="confirmation" hidden aria-labelledby="confirmTitle" tabindex="-1">
+      <svg class="confirm__dial" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="60" cy="60" r="56" pathLength="1" class="confirm__ring" />
+        <path d="M38 61l15 15 30-32" pathLength="1" class="confirm__check" />
+      </svg>
+      <h2 class="title" id="confirmTitle" data-i18n="confirm.title">Your order is ready</h2>
+      <p class="confirm__number"><span data-i18n="confirm.number">Order number</span> <strong id="confirmNumber" dir="ltr"></strong></p>
+      <p class="lead" data-i18n="confirm.text">One last step: send the message we've prepared in WhatsApp.</p>
+
+      <ol class="confirm__steps">
+        <li><span class="confirm__num" lang="en">I</span><span data-i18n="confirm.step1"></span></li>
+        <li><span class="confirm__num" lang="en">II</span><span data-i18n="confirm.step2"></span></li>
+        <li><span class="confirm__num" lang="en">III</span><span data-i18n="confirm.step3"></span></li>
+        <li><span class="confirm__num" lang="en">IV</span><span data-i18n="confirm.step4"></span></li>
+      </ol>
+
+      <p class="confirm__hint" data-i18n="confirm.notOpened">WhatsApp didn't open? Use the button below.</p>
+      <div class="confirm__actions">
+        <a class="btn" id="resendWhatsapp" href="https://wa.me/201096452755" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.1-3.9A8.4 8.4 0 1 1 20 11.6Z"/><path d="M9 8.6c0 3.4 3 6.4 6.4 6.4l1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.2-2.2l.8-1-1-2-1.5 1Z"/></svg><span data-i18n="confirm.resend">Resend on WhatsApp</span></a>
+        <button class="btn btn--ghost" type="button" id="copyOrder"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="1.5"/><path d="M15.5 8.5v-3a1.5 1.5 0 0 0-1.5-1.5H5A1.5 1.5 0 0 0 3.5 5.5V14A1.5 1.5 0 0 0 5 15.5h3.5"/></svg><span data-i18n="confirm.copy">Copy order number</span></button>
+        <a class="btn btn--ghost" id="trackOrder" href="https://wa.me/201096452755" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.2 2"/></svg><span data-i18n="confirm.track">Ask about my order</span></a>
+      </div>
+      <dl class="summary__rows confirm__summary" id="confirmSummary"></dl>
+      <a class="link" href="products.html" data-i18n="confirm.continue">Continue shopping</a>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/cart-page.js" defer></script>
+</body>
+</html>

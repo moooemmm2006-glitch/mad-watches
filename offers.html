@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch Offers &amp; Discounts | Mad Watches</title>
+  <meta name="description" content="Original watches at honest discounts of up to 40%. Limited time, while stock lasts. Cash on delivery across Egypt." />
+  <meta name="theme-color" content="#0A2C47" />
+  <link rel="canonical" href="https://example.com/offers.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Watch Offers &amp; Discounts | Mad Watches" />
+  <meta property="og:description" content="Original watches at honest discounts of up to 40%. Limited time, while stock lasts. Cash on delivery across Egypt." />
+  <meta property="og:url" content="https://example.com/offers.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Watch Offers &amp; Discounts | Mad Watches" />
+  <meta name="twitter:description" content="Original watches at honest discounts of up to 40%. Limited time, while stock lasts. Cash on delivery across Egypt." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="offers">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <!-- Page title + countdown (end date: STORE.offerEndsAt in js/products.js) -->
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.offers">Offers</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="offers.eyebrow">Limited time</span></p>
+        <h1 class="title" data-i18n="offers.title">Offers</h1>
+        <p class="lead" data-i18n="offers.text">Original watches at honest discounts, while stock lasts.</p>
+        <div class="countdown countdown--center" id="offersCountdown" role="timer"></div>
+      </div>
+    </section>
+
+    <!-- Every discounted product (has an originalPrice), biggest discount first -->
+    <section class="section" aria-labelledby="offersCount">
+      <div class="container">
+        <div class="toolbar">
+          <h2 class="toolbar__count" id="offersCount"></h2>
+          <a class="link" href="products.html?sale=1&amp;sort=discount"><span data-i18n="shop.filters">Filters</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg></a>
+        </div>
+        <div class="grid grid--4" id="offersGrid"></div>
+        <div class="shop__more" id="offersMoreBox">
+          <p class="shop__showing" id="offersShowing"></p>
+          <button class="btn btn--ghost" type="button" id="offersMore" data-i18n="shop.loadMore">Load more</button>
+        </div>
+        <div class="empty" id="offersEmpty" hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 4.5v1.5M12 18v1.5M4.5 12H6M18 12h1.5M12 12l-2.6-2.8M12 12l4.2-2.4"/></svg>
+          <p class="empty__title" data-i18n="offers.empty">No offers right now. Check back soon!</p>
+          <a class="btn" href="products.html" data-i18n="cart.emptyButton">Start shopping</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/offers.js" defer></script>
+</body>
+</html>

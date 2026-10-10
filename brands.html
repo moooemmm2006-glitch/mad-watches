@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Brands | Mad Watches</title>
+  <meta name="description" content="From Casio and Seiko to Tissot, Omega and Rolex: every watch brand we carry." />
+  <meta name="theme-color" content="#0A2C47" />
+  <link rel="canonical" href="https://example.com/brands.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="All Brands | Mad Watches" />
+  <meta property="og:description" content="From Casio and Seiko to Tissot, Omega and Rolex: every watch brand we carry." />
+  <meta property="og:url" content="https://example.com/brands.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Brands | Mad Watches" />
+  <meta name="twitter:description" content="From Casio and Seiko to Tissot, Omega and Rolex: every watch brand we carry." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="brands">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <!-- Page title -->
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.brands">Brands</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="brands.eyebrow">Houses</span></p>
+        <h1 class="title" data-i18n="brands.title">All brands</h1>
+        <p class="lead" data-i18n="brands.text">From everyday essentials to Swiss icons.</p>
+        <div class="ticks" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- Brand cards: created by js/pages/brands.js from BRANDS in js/products.js.
+         Each card opens the shop filtered by that brand (products.html?brand=…) -->
+    <section class="section" aria-labelledby="brandsGridTitle">
+      <div class="container">
+        <h2 class="visually-hidden" id="brandsGridTitle" data-i18n="brands.title">All brands</h2>
+        <div class="brand-grid" id="brandGrid"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/brands.js" defer></script>
+</body>
+</html>

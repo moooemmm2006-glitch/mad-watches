@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+  <!-- Fallback image shown when a product photo can't be loaded -->
+  <rect width="800" height="800" fill="#0A3A63"/>
+  <g fill="none" stroke="#9CC3E0" stroke-linecap="round">
+    <rect x="345" y="150" width="110" height="130" rx="14" opacity=".35"/>
+    <rect x="345" y="520" width="110" height="130" rx="14" opacity=".35"/>
+    <circle cx="400" cy="400" r="150" stroke-width="2" opacity=".8"/>
+    <circle cx="400" cy="400" r="128" opacity=".3"/>
+    <line x1="400" y1="400" x2="400" y2="310" stroke-width="4" opacity=".8"/>
+    <line x1="400" y1="400" x2="465" y2="400" stroke-width="3" opacity=".8"/>
+    <rect x="550" y="390" width="12" height="20" rx="3" opacity=".5"/>
+  </g>
+  <circle cx="400" cy="400" r="6" fill="#9CC3E0"/>
+  <text x="400" y="720" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="6" fill="#9CC3E0" opacity=".6">MAD WATCHES</text>
+</svg>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop All Watches | Mad Watches</title>
+  <meta name="description" content="Browse original men's and women's watches. Filter by brand, price, style, strap, movement and size. Cash on delivery across Egypt." />
+  <meta name="theme-color" content="#0A2C47" />
+  <link rel="canonical" href="https://example.com/products.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Shop All Watches | Mad Watches" />
+  <meta property="og:description" content="Browse original men's and women's watches. Filter by brand, price, style, strap, movement and size. Cash on delivery across Egypt." />
+  <meta property="og:url" content="https://example.com/products.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Shop All Watches | Mad Watches" />
+  <meta name="twitter:description" content="Browse original men's and women's watches. Filter by brand, price, style, strap, movement and size. Cash on delivery across Egypt." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="shop">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <!-- Page title (changes to the brand name when one brand is selected) -->
+    <section class="page-head page-head--compact">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol id="shopCrumbs"><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.shop">Shop</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="shop.eyebrow">The Collection</span></p>
+        <h1 class="title" id="shopTitle" data-i18n="shop.title">Shop all watches</h1>
+        <p class="lead" id="shopLead" hidden></p>
+      </div>
+    </section>
+
+    <!-- Shop: filters on the left (a drawer on phones), products on the right -->
+    <div class="container shop">
+
+      <aside class="filters" id="filters" data-i18n-attr="aria-label:shop.filters" aria-label="Filters">
+        <div class="filters__backdrop" data-close-filters></div>
+        <div class="filters__panel">
+          <div class="filters__head">
+            <h2 class="filters__title" data-i18n="shop.filters">Filters</h2>
+            <button class="icon-btn filters__close" type="button" data-close-filters data-i18n-attr="aria-label:common.close" aria-label="Close"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+          </div>
+          <!-- filter groups are created by js/pages/shop.js -->
+          <form class="filters__body" id="filterForm" role="search" onsubmit="return false"></form>
+          <div class="filters__foot">
+            <button class="btn btn--ghost btn--small" type="button" data-clear-filters data-i18n="shop.clearAll">Clear all</button>
+            <button class="btn btn--small" type="button" data-close-filters id="filtersApply"></button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="shop__main" aria-labelledby="resultCount">
+        <div class="shop__bar">
+          <button class="btn btn--ghost btn--small shop__filter-btn" type="button" id="openFilters" aria-controls="filters" aria-expanded="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"/></svg><span data-i18n="shop.filters">Filters</span><span class="shop__filter-count" id="filterCount"></span>
+          </button>
+          <h2 class="shop__count" id="resultCount" aria-live="polite"></h2>
+          <div class="shop__tools">
+            <label class="visually-hidden" for="sortSelect" data-i18n="shop.sort">Sort by</label>
+            <select class="input shop__sort" id="sortSelect"></select>
+            <div class="view-toggle" role="group" data-i18n-attr="aria-label:shop.columns" aria-label="Columns">
+              <button type="button" data-cols="2" aria-label="2"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="7" height="16"/><rect x="13" y="4" width="7" height="16"/></svg></button>
+              <button type="button" data-cols="3" aria-label="3"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="5" height="16"/><rect x="9.5" y="4" width="5" height="16"/><rect x="16" y="4" width="5" height="16"/></svg></button>
+              <button type="button" data-cols="4" aria-label="4"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="3.8" height="16"/><rect x="7.4" y="4" width="3.8" height="16"/><rect x="12.3" y="4" width="3.8" height="16"/><rect x="17.2" y="4" width="3.8" height="16"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="active-chips" id="activeChips"></div>
+
+        <!-- Product grid (grey placeholders until the products are drawn) -->
+        <div class="grid shop__grid" id="shopGrid" data-cols="3">
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-card__img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line"></div></div>
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-card__img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line"></div></div>
+          <div class="skeleton-card" aria-hidden="true"><div class="skeleton skeleton-card__img"></div><div class="skeleton skeleton-line"></div><div class="skeleton skeleton-line"></div></div>
+        </div>
+
+        <!-- Load more -->
+        <div class="shop__more" id="loadMoreBox">
+          <p class="shop__showing" id="showingText"></p>
+          <div class="shop__progress" aria-hidden="true"><span id="showingBar"></span></div>
+          <button class="btn btn--ghost" type="button" id="loadMore" data-i18n="shop.loadMore">Load more</button>
+        </div>
+
+        <!-- No results -->
+        <div class="empty" id="noResults" hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 4.5v1.5M12 18v1.5M4.5 12H6M18 12h1.5M12 12l-2.6-2.8M12 12l4.2-2.4"/></svg>
+          <p class="empty__title" data-i18n="shop.noResultsTitle">No watches match these filters</p>
+          <p class="lead" data-i18n="shop.noResultsText">Try removing a filter or widening the price range.</p>
+          <div class="cta__actions">
+            <button class="btn" type="button" data-clear-filters data-i18n="shop.clearAll">Clear all</button>
+            <button class="btn btn--ghost" type="button" data-open-quiz data-i18n="home.findWatch">Find your watch</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/filters.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/pages/shop.js" defer></script>
+</body>
+</html>

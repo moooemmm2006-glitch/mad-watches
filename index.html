@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mad Watches | Original Watches in Egypt — Beauty &amp; Simplicity</title>
+  <meta name="description" content="Original watches from Casio, Seiko, Tissot, Rolex, Omega and more. Honest prices, cash on delivery across Egypt, 14-day exchange." />
+  <meta name="theme-color" content="#0A2C47" />
+  <link rel="canonical" href="https://example.com/" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Mad Watches | Original Watches in Egypt — Beauty &amp; Simplicity" />
+  <meta property="og:description" content="Original watches from Casio, Seiko, Tissot, Rolex, Omega and more. Honest prices, cash on delivery across Egypt, 14-day exchange." />
+  <meta property="og:url" content="https://example.com/" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mad Watches | Original Watches in Egypt — Beauty &amp; Simplicity" />
+  <meta name="twitter:description" content="Original watches from Casio, Seiko, Tissot, Rolex, Omega and more. Honest prices, cash on delivery across Egypt, 14-day exchange." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+  <!-- Information about the store for Google.
+       "sameAs", "email" and the WhatsApp link are refreshed from STORE (js/products.js) by js/pages/home.js -->
+  <script type="application/ld+json" id="ld-org">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://example.com/#organization",
+        "name": "Mad Watches",
+        "url": "https://example.com/",
+        "logo": "https://example.com/images/icon-512.png",
+        "image": "https://example.com/images/og-image.jpg",
+        "description": "Online watch store in Egypt. Original watches, cash on delivery. Beauty and simplicity.",
+        "email": "moooemmm2006@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Cairo", "addressCountry": "EG" },
+        "sameAs": ["https://www.instagram.com/madwatches1/", "https://www.tiktok.com/@mad.watches", "https://wa.me/201096452755"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "url": "https://wa.me/201096452755",
+          "availableLanguage": ["English", "Arabic"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          }
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://example.com/#website",
+        "url": "https://example.com/",
+        "name": "Mad Watches",
+        "inLanguage": ["en", "ar"],
+        "publisher": { "@id": "https://example.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://example.com/products.html?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-page="home" data-header="transparent">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main">
+
+    <!-- ===================================================================
+         I. HERO — the name + a line-art watch (from the logo) that draws
+         itself; its hands show the real time.
+         =================================================================== -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="home.heroEyebrow">Beauty · Simplicity · Time</span></p>
+          <!-- The store name stays in English in both languages -->
+          <h1 class="hero__title" id="heroTitle" lang="en" dir="ltr"><span>Mad</span> <span>Watches</span></h1>
+          <p class="hero__tagline" data-i18n="home.heroText">The most important thing is beauty and simplicity.</p>
+          <div class="hero__actions">
+            <a class="btn" href="products.html" data-i18n="home.shopNow">Shop the collection</a>
+            <a class="btn btn--ghost" href="#quiz" data-open-quiz data-i18n="home.findWatch">Find your watch</a>
+          </div>
+        </div>
+        <div class="hero__art">
+        <svg class="hero-watch" viewBox="0 0 400 640" role="img" aria-labelledby="heroWatchTitle">
+          <title id="heroWatchTitle">Line drawing of a watch, showing the current time</title>
+          <g class="hw-bracelet">
+            <path class="draw" pathLength="1" style="--d:.55s" d="M143.2 14L134 182M256.8 14L266 182M134 182C130 196 120 208.1 120 222.1M266 182C270 196 280 208.1 280 222.1M134 182Q200 191 266 182" />
+            <path class="draw draw--thin" pathLength="1" style="--d:.8s" d="M135.2 161L264.8 161M167.6 161L167.6 182M200 161L200 182M232.4 161L232.4 182M136.3 140L263.7 140M152.2 140L152.2 161M184.1 140L184.1 161M215.9 140L215.9 161M247.8 140L247.8 161M137.5 119L262.5 119M168.7 119L168.7 140M200 119L200 140M231.3 119L231.3 140M138.6 98L261.4 98M154 98L154 119M184.7 98L184.7 119M215.3 98L215.3 119M246 98L246 119M139.8 77L260.2 77M169.9 77L169.9 98M200 77L200 98M230.1 77L230.1 98M140.9 56L259.1 56M155.7 56L155.7 77M185.2 56L185.2 77M214.8 56L214.8 77M244.3 56L244.3 77M142.1 35L257.9 35M171 35L171 56M200 35L200 56M229 35L229 56M143.2 14L256.8 14M157.4 14L157.4 35M185.8 14L185.8 35M214.2 14L214.2 35M242.6 14L242.6 35" />
+            <path class="draw" pathLength="1" style="--d:.55s" d="M143.2 626L134 458M256.8 626L266 458M134 458C130 444 120 431.9 120 417.9M266 458C270 444 280 431.9 280 417.9M134 458Q200 449 266 458" />
+            <path class="draw draw--thin" pathLength="1" style="--d:.8s" d="M135.2 479L264.8 479M167.6 479L167.6 458M200 479L200 458M232.4 479L232.4 458M136.3 500L263.7 500M152.2 500L152.2 479M184.1 500L184.1 479M215.9 500L215.9 479M247.8 500L247.8 479M137.5 521L262.5 521M168.7 521L168.7 500M200 521L200 500M231.3 521L231.3 500M138.6 542L261.4 542M154 542L154 521M184.7 542L184.7 521M215.3 542L215.3 521M246 542L246 521M139.8 563L260.2 563M169.9 563L169.9 542M200 563L200 542M230.1 563L230.1 542M140.9 584L259.1 584M155.7 584L155.7 563M185.2 584L185.2 563M214.8 584L214.8 563M244.3 584L244.3 563M142.1 605L257.9 605M171 605L171 584M200 605L200 584M229 605L229 584M143.2 626L256.8 626M157.4 626L157.4 605M185.8 626L185.8 605M214.2 626L214.2 605M242.6 626L242.6 605" />
+          </g>
+          <g class="hw-case">
+            <circle class="draw" pathLength="1" style="--d:0s" cx="200" cy="320" r="128" />
+            <circle class="draw" pathLength="1" style="--d:.15s" cx="200" cy="320" r="119" />
+            <circle class="draw draw--thin" pathLength="1" style="--d:.3s" cx="200" cy="320" r="110" />
+            <path class="draw" pathLength="1" style="--d:.35s" d="M327 312h8a3 3 0 0 1 3 3v-4a3 3 0 0 1 3-3h3a3 3 0 0 1 3 3v22a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-4a3 3 0 0 1-3 3h-8" />
+            <path class="draw draw--thin" pathLength="1" style="--d:.5s" d="M342 313v14M345 313v14" />
+          </g>
+          <g class="hw-dial">
+            <path class="draw draw--thin" pathLength="1" style="--d:1s" d="M211.1 214.6L210.5 220.5M222 216.3L220.8 222.2M232.8 219.2L230.9 224.9M243.1 223.2L240.7 228.6M262.3 234.2L258.8 239.1M270.9 241.2L266.9 245.7M278.8 249.1L274.3 253.1M285.8 257.7L280.9 261.2M296.8 276.9L291.4 279.3M300.8 287.2L295.1 289.1M303.7 298L297.8 299.2M305.4 308.9L299.5 309.5M305.4 331.1L299.5 330.5M303.7 342L297.8 340.8M300.8 352.8L295.1 350.9M296.8 363.1L291.4 360.7M285.8 382.3L280.9 378.8M278.8 390.9L274.3 386.9M270.9 398.8L266.9 394.3M262.3 405.8L258.8 400.9M243.1 416.8L240.7 411.4M232.8 420.8L230.9 415.1M222 423.7L220.8 417.8M211.1 425.4L210.5 419.5M188.9 425.4L189.5 419.5M178 423.7L179.2 417.8M167.2 420.8L169.1 415.1M156.9 416.8L159.3 411.4M137.7 405.8L141.2 400.9M129.1 398.8L133.1 394.3M121.2 390.9L125.7 386.9M114.2 382.3L119.1 378.8M103.2 363.1L108.6 360.7M99.2 352.8L104.9 350.9M96.3 342L102.2 340.8M94.6 331.1L100.5 330.5M94.6 308.9L100.5 309.5M96.3 298L102.2 299.2M99.2 287.2L104.9 289.1M103.2 276.9L108.6 279.3M114.2 257.7L119.1 261.2M121.2 249.1L125.7 253.1M129.1 241.2L133.1 245.7M137.7 234.2L141.2 239.1M156.9 223.2L159.3 228.6M167.2 219.2L169.1 224.9M178 216.3L179.2 222.2M188.9 214.6L189.5 220.5" />
+            <path class="draw" pathLength="1" style="--d:1.2s" d="M249 235.1L240 250.7M284.9 271L269.3 280M284.9 369L269.3 360M249 404.9L240 389.3M151 404.9L160 389.3M115.1 369L130.7 360M115.1 271L130.7 280M151 235.1L160 250.7" />
+            <g class="hw-numerals">
+            <text x="200" y="231">XII</text>
+            <text x="289" y="320">III</text>
+            <text x="200" y="414">VI</text>
+            <text x="111" y="320">IX</text>
+            </g>
+            <circle class="draw draw--thin" pathLength="1" style="--d:1.3s" cx="200" cy="370" r="23" />
+            <path class="draw draw--thin" pathLength="1" style="--d:1.45s" d="M200 350L200 355M210 352.7L208.5 355.3M217.3 360L214.7 361.5M220 370L215 370M217.3 380L214.7 378.5M210 387.3L208.5 384.7M200 390L200 385M190 387.3L191.5 384.7M182.7 380L185.3 378.5M180 370L185 370M182.7 360L185.3 361.5M190 352.7L191.5 355.3" />
+          </g>
+          <g class="hw-hands">
+            <path class="hw-hand" id="hwHour" d="M200 328L196.8 310C196 296 198.5 274 200 260C201.5 274 204 296 203.2 310Z" />
+            <path class="hw-hand" id="hwMinute" d="M200 330L197.4 308C196.8 280 199 244 200 224C201 244 203.2 280 202.6 308Z" />
+            <circle class="hw-cap" cx="200" cy="320" r="4.5" />
+            <line class="hw-sub-hand" id="hwSecond" x1="200" y1="375" x2="200" y2="351" />
+            <circle class="hw-cap" cx="200" cy="370" r="2" />
+          </g>
+        </svg>
+        </div>
+      </div>
+      <a class="hero__scroll" href="#featured" data-i18n-attr="aria-label:home.scroll" aria-label="Scroll down"></a>
+    </section>
+
+
+    <!-- ===================================================================
+         II. FEATURED COLLECTION (products with isFeatured: true)
+         =================================================================== -->
+    <section class="section" id="featured" aria-labelledby="featuredTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">II</span><span data-i18n="home.featuredEyebrow">Selected</span></p>
+          <h2 class="title" id="featuredTitle" data-i18n="home.featuredTitle">The Featured Collection</h2>
+          <p class="lead" data-i18n="home.featuredText">Pieces we love for their design, quality and value.</p>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="grid grid--4" id="featuredGrid"></div>
+        <div class="section-foot"><a class="link" href="products.html"><span data-i18n="common.viewAll">View all</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         III. CURRENT OFFERS (products with an originalPrice) + countdown
+         =================================================================== -->
+    <section class="section section--alt" id="offers" aria-labelledby="offersTitle">
+      <div class="container">
+        <div class="offers-head">
+          <header class="section-head section-head--start reveal">
+            <p class="eyebrow"><span class="eyebrow__num" lang="en">III</span><span data-i18n="home.offersEyebrow">Offers</span></p>
+            <h2 class="title" id="offersTitle" data-i18n="home.offersTitle">Current Offers</h2>
+            <p class="lead" data-i18n="home.offersText">Original watches, honest discounts. For a limited time.</p>
+            <div class="ticks" aria-hidden="true"></div>
+          </header>
+          <div class="countdown reveal" id="homeCountdown" role="timer"></div>
+        </div>
+        <div class="grid grid--4" id="offersGrid"></div>
+        <div class="section-foot"><a class="link" href="offers.html"><span data-i18n="common.viewAll">View all</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         IV. BRAND STRIP
+         =================================================================== -->
+    <section class="section section--tight" aria-labelledby="brandsTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">IV</span><span data-i18n="home.brandsEyebrow">Houses</span></p>
+          <h2 class="title title--sm" id="brandsTitle" data-i18n="home.brandsTitle">Brands we carry</h2>
+        </header>
+      </div>
+      <div class="brand-strip"><div class="brand-strip__track" id="brandStrip"></div></div>
+      <div class="section-foot"><a class="link" href="brands.html"><span data-i18n="common.viewAll">View all</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </section>
+
+
+    <!-- ===================================================================
+         V. WHY MAD WATCHES
+         =================================================================== -->
+    <section class="section section--alt" id="why" aria-labelledby="whyTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">V</span><span data-i18n="home.whyEyebrow">Why us</span></p>
+          <h2 class="title" id="whyTitle" data-i18n="home.whyTitle">Why Mad Watches</h2>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="why reveal">
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span class="why__num" lang="en">I</span><h3 class="why__title" data-i18n="about.g2">Checked by hand</h3><p class="why__text" data-i18n="about.g2Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="1.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></svg><span class="why__num" lang="en">II</span><h3 class="why__title" data-i18n="about.g3">Cash on delivery</h3><p class="why__text" data-i18n="about.g3Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8.5A8 8 0 0 0 5 7.4M4.5 15.5A8 8 0 0 0 19 16.6"/><path d="M19.8 4v4.6h-4.6M4.2 20v-4.6h4.6"/></svg><span class="why__num" lang="en">III</span><h3 class="why__title" data-i18n="about.g4">14-day exchange</h3><p class="why__text" data-i18n="about.g4Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span class="why__num" lang="en">IV</span><h3 class="why__title" data-i18n="about.g5">Fast, secure delivery</h3><p class="why__text" data-i18n="about.g5Text"></p></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         VI. FIND YOUR WATCH (quiz)
+         =================================================================== -->
+    <section class="section" id="quiz" aria-labelledby="quizTitle">
+      <div class="container">
+        <div class="quiz-invite reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VI</span><span data-i18n="home.quizEyebrow">Guided</span></p>
+          <h2 class="title" id="quizTitle" data-i18n="home.quizTitle">Not sure where to start?</h2>
+          <p class="lead" data-i18n="home.quizText">Answer four quick questions and we'll suggest watches that suit you.</p>
+          <button class="btn" type="button" data-open-quiz><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 4.5v1.5M12 18v1.5M4.5 12H6M18 12h1.5M12 12l-2.6-2.8M12 12l4.2-2.4"/></svg><span data-i18n="home.quizButton">Start the quiz</span></button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         VII. REAL CUSTOMER REVIEWS
+         A line of text + a button to the Instagram highlights. If
+         STORE.reviewVideo (js/products.js) has a link, that one video is
+         shown too. Built by renderRealReviews() in js/main.js.
+         =================================================================== -->
+    <section class="section section--alt" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VII</span><span data-i18n="home.reviewsEyebrow">Customers</span></p>
+          <h2 class="title" id="reviewsTitle" data-i18n="reviews.title">What our customers say</h2>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="real-reviews reveal" data-real-reviews></div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         VIII. ABOUT TEASER
+         =================================================================== -->
+    <section class="section" aria-labelledby="aboutTitle">
+      <div class="container split">
+        <div class="split__media reveal">
+          <img src="images/logo-1200.jpg" width="1200" height="896" alt="The Mad Watches logo" loading="lazy" decoding="async" />
+        </div>
+        <div class="split__text reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VIII</span><span data-i18n="home.aboutEyebrow">Our story</span></p>
+          <h2 class="title" id="aboutTitle" data-i18n="home.aboutTitle">Less, but better.</h2>
+          <p class="lead" data-i18n="home.aboutText"></p>
+          <a class="link" href="about.html"><span data-i18n="home.aboutLink">Read our story</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         IX. FOLLOW OUR WORLD (social cards + WhatsApp chat)
+         The cards are built by js/pages/home.js from the links in STORE
+         (js/products.js). An empty link ("") hides its card automatically.
+         =================================================================== -->
+    <section class="section section--alt follow" aria-labelledby="followTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">IX</span><span data-i18n="home.followEyebrow">Stay close</span></p>
+          <h2 class="title" id="followTitle" data-i18n="home.followTitle">Follow our world</h2>
+          <p class="lead" data-i18n="home.followText"></p>
+        </header>
+
+        <div class="follow__grid" id="followGrid"></div>
+
+        <!-- WhatsApp chat strip (the number itself is never shown) -->
+        <div class="follow-chat reveal">
+          <span class="follow-chat__icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.1-3.9A8.4 8.4 0 1 1 20 11.6Z"/><path d="M9 8.6c0 3.4 3 6.4 6.4 6.4l1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.2-2.2l.8-1-1-2-1.5 1Z"/></svg></span>
+          <div class="follow-chat__text">
+            <h3 data-i18n="home.chatTitle">Prefer to talk?</h3>
+            <p data-i18n="home.chatText"></p>
+          </div>
+          <a class="btn" id="followChat" href="#" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.1-3.9A8.4 8.4 0 1 1 20 11.6Z"/><path d="M9 8.6c0 3.4 3 6.4 6.4 6.4l1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.2-2.2l.8-1-1-2-1.5 1Z"/></svg><span data-i18n="social.chat">Chat with us on WhatsApp</span></a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/pages/home.js" defer></script>
+</body>
+</html>

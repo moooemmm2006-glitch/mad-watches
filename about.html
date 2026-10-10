@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Mad Watches</title>
+  <meta name="description" content="The story of Mad Watches: beauty, simplicity and only original watches, checked by hand and delivered across Egypt." />
+  <meta name="theme-color" content="#0A2C47" />
+  <link rel="canonical" href="https://example.com/about.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="About Us | Mad Watches" />
+  <meta property="og:description" content="The story of Mad Watches: beauty, simplicity and only original watches, checked by hand and delivered across Egypt." />
+  <meta property="og:url" content="https://example.com/about.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="About Us | Mad Watches" />
+  <meta name="twitter:description" content="The story of Mad Watches: beauty, simplicity and only original watches, checked by hand and delivered across Egypt." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="about">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.about">About</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="about.eyebrow">Our story</span></p>
+        <h1 class="title" data-i18n="about.title">Less, but better.</h1>
+        <div class="ticks" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- I. Story -->
+    <section class="section" aria-label="Story">
+      <div class="container split">
+        <div class="split__media reveal">
+          <img src="images/logo-1200.jpg" width="1200" height="896" alt="The Mad Watches logo" loading="lazy" decoding="async" />
+        </div>
+        <div class="split__text reveal">
+          <p class="lead" data-i18n="about.p1"></p>
+          <p class="lead" data-i18n="about.p2"></p>
+          <p class="lead" data-i18n="about.p3"></p>
+          <a class="btn" href="products.html" data-i18n="home.shopNow">Shop the collection</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Numbers (filled by js/pages/about.js) -->
+    <section class="section--tight section--alt" aria-label="Mad Watches in numbers">
+      <div class="container numbers" id="numbers"></div>
+    </section>
+
+    <!-- II. Values -->
+    <section class="section" aria-labelledby="valuesTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">II</span><span data-i18n="about.valuesEyebrow">What we believe</span></p>
+          <h2 class="title" id="valuesTitle" data-i18n="about.valuesTitle">Our values</h2>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="values reveal">
+          <div class="value"><span class="value__num" lang="en">I</span><h3 class="value__title" data-i18n="about.v1">Beauty</h3><p data-i18n="about.v1Text"></p></div>
+          <div class="value"><span class="value__num" lang="en">II</span><h3 class="value__title" data-i18n="about.v2">Simplicity</h3><p data-i18n="about.v2Text"></p></div>
+          <div class="value"><span class="value__num" lang="en">III</span><h3 class="value__title" data-i18n="about.v3">Honesty</h3><p data-i18n="about.v3Text"></p></div>
+          <div class="value"><span class="value__num" lang="en">IV</span><h3 class="value__title" data-i18n="about.v4">Care</h3><p data-i18n="about.v4Text"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- III. Our promise -->
+    <section class="section section--alt" id="promise" aria-labelledby="promiseTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">III</span><span data-i18n="about.promiseEyebrow">Our promise</span></p>
+          <h2 class="title" id="promiseTitle" data-i18n="about.promiseTitle">Why Mad Watches</h2>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="why reveal">
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span class="why__num" lang="en">I</span><h3 class="why__title" data-i18n="about.g2"></h3><p class="why__text" data-i18n="about.g2Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="1.5"/><circle cx="12" cy="12" r="2.6"/><path d="M6 9.5v5M18 9.5v5"/></svg><span class="why__num" lang="en">II</span><h3 class="why__title" data-i18n="about.g3"></h3><p class="why__text" data-i18n="about.g3Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 8.5A8 8 0 0 0 5 7.4M4.5 15.5A8 8 0 0 0 19 16.6"/><path d="M19.8 4v4.6h-4.6M4.2 20v-4.6h4.6"/></svg><span class="why__num" lang="en">III</span><h3 class="why__title" data-i18n="about.g4"></h3><p class="why__text" data-i18n="about.g4Text"></p></div>
+          <div class="why__item"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3v3h-7"/><circle cx="6.5" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg><span class="why__num" lang="en">IV</span><h3 class="why__title" data-i18n="about.g5"></h3><p class="why__text" data-i18n="about.g5Text"></p></div>
+        </div>
+        <div class="policy reveal">
+          <p><strong data-i18n="product.tabShipping">Shipping &amp; returns</strong></p>
+          <p id="aboutShipping"></p>
+          <p data-i18n="product.returnsText"></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/about.js" defer></script>
+</body>
+</html>

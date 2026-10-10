@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Mad Watches sitemap: the list of pages for Google.
+  - Replace https://example.com with your real domain.
+  - When you add a product or a brand, add a <url> line for it (see docs/ADD-PRODUCTS.md).
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Pages -->
+  <url><loc>https://example.com/</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://example.com/products.html</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://example.com/offers.html</loc><lastmod>2026-10-02</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://example.com/brands.html</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/about.html</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://example.com/contact.html</loc><lastmod>2026-10-02</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+
+  <!-- Brands (the shop filtered by brand) -->
+  <url><loc>https://example.com/products.html?brand=casio</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=seiko</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=citizen</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=orient</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=fossil</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=tissot</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=hamilton</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=longines</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=tag-heuer</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=omega</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=rolex</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=swatch</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=daniel-wellington</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=guess</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=zara</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=michael-kors</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=emporio-armani</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=curren</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://example.com/products.html?brand=naviforce</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+
+  <!-- Watches -->
+  <url><loc>https://example.com/product.html?id=casio-gshock-dw5600</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=casio-vintage-a168</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=casio-edifice-chrono</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=casio-duro-diver</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=seiko-5-sports</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=seiko-presage-cocktail</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=seiko-prospex-turtle</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=seiko-chronograph-100m</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=citizen-promaster-diver</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=citizen-crystal-chrono</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=citizen-tsuyosa</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=orient-open-heart</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=orient-kamasu</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=orient-sun-moon</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=fossil-machine</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=fossil-grant</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=fossil-gen6</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=fossil-carlie</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tissot-prx</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tissot-seastar-chrono</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tissot-le-locle</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tissot-lovely-square</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=hamilton-khaki-field</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=hamilton-jazzmaster-open-heart</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=hamilton-khaki-pilot</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=longines-hydroconquest</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=longines-master-collection</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=longines-la-grande-classique</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tag-heuer-carrera</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tag-heuer-aquaracer</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=tag-heuer-formula1</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=omega-seamaster-300</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=omega-planet-ocean-chrono</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=omega-speedmaster-moonwatch</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=omega-constellation-29</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=rolex-submariner-date</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=rolex-cosmograph-daytona</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=rolex-datejust-36</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=rolex-oyster-perpetual-41</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=swatch-moonswatch</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=swatch-sistem51</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=swatch-skin-classic</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=dw-classic-sheffield</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=dw-petite-melrose</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=dw-quadro-evergold</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=dw-iconic-link-emerald</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=guess-continental</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=guess-sparkling-rose</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=guess-lady-g-green</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=zara-minimal-rose</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=zara-black-mesh</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=zara-square-green</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=mk-lexington-chrono</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=mk-darci-rose</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=mk-bradshaw-smart</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=ea-chronograph-black-gold</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=ea-luigi-automatic</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=ea-gianni-t-bar</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=curren-8023-steel</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=curren-8114-leather</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=curren-8301-classic</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=curren-9003-ladies</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=naviforce-nf9197</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=naviforce-nf9163</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=naviforce-nf8023-gold</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://example.com/product.html?id=naviforce-smart-band</loc><lastmod>2026-10-02</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>
+</urlset>

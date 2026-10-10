@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | Mad Watches</title>
+  <meta name="description" content="This page doesn't exist. Browse original watches at Mad Watches." />
+  <meta name="theme-color" content="#0A2C47" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://example.com/404.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Page not found | Mad Watches" />
+  <meta property="og:description" content="This page doesn't exist. Browse original watches at Mad Watches." />
+  <meta property="og:url" content="https://example.com/404.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Page not found | Mad Watches" />
+  <meta name="twitter:description" content="This page doesn't exist. Browse original watches at Mad Watches." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="404">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+    <section class="section not-found">
+      <div class="container">
+        <!-- a stopped dial, hands at 4:04 -->
+        <svg class="not-found__dial" viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="92" />
+          <circle cx="100" cy="100" r="84" class="thin" />
+          <path class="thin" d="M100 22v8M100 170v8M22 100h8M170 100h8M139 32.5l-4 6.9M65 161l-4 6.9M167.5 61l-6.9 4M39.4 135l-6.9 4M167.5 139l-6.9-4M39.4 65l-6.9-4M139 167.5l-4-6.9M65 39l-4-6.9" />
+          <line x1="100" y1="100" x2="131" y2="118" class="hand" />
+          <line x1="100" y1="100" x2="108" y2="38" class="hand hand--min" />
+          <circle cx="100" cy="100" r="3.5" class="cap" />
+        </svg>
+        <p class="eyebrow" lang="en">404</p>
+        <h1 class="title" data-i18n="404.title">This page took a different route</h1>
+        <p class="lead" data-i18n="404.text">The page you're looking for doesn't exist.</p>
+        <div class="cta__actions">
+          <a class="btn" href="index.html" data-i18n="404.home">Back to home</a>
+          <a class="btn btn--ghost" href="products.html" data-i18n="home.shopNow">Shop the collection</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/not-found.js" defer></script>
+</body>
+</html>

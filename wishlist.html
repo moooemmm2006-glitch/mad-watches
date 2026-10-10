@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Wishlist | Mad Watches</title>
+  <meta name="description" content="The watches you saved at Mad Watches." />
+  <meta name="theme-color" content="#0A2C47" />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://example.com/wishlist.html" />
+
+  <!-- Icons (made from the logo) -->
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Link previews (WhatsApp, Facebook, Instagram, X). Replace https://example.com with your domain. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Mad Watches" />
+  <meta property="og:title" content="Your Wishlist | Mad Watches" />
+  <meta property="og:description" content="The watches you saved at Mad Watches." />
+  <meta property="og:url" content="https://example.com/wishlist.html" />
+  <meta property="og:image" content="https://example.com/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mad Watches" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="ar_EG" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Your Wishlist | Mad Watches" />
+  <meta name="twitter:description" content="The watches you saved at Mad Watches." />
+  <meta name="twitter:image" content="https://example.com/images/og-image.jpg" />
+
+  <!-- Language (English/Arabic) + intro, set before the page is drawn. Same logic as js/i18n.js -->
+  <script>
+    (function () {
+      var html = document.documentElement, lang, seen = true;
+      try { lang = localStorage.getItem("madwatches-lang"); } catch (e) {}
+      if (lang !== "ar" && lang !== "en") lang = /^ar\b/i.test(navigator.language || "") ? "ar" : "en";
+      html.lang = lang;
+      html.dir = lang === "ar" ? "rtl" : "ltr";
+      html.className += " js";
+      try { seen = !!sessionStorage.getItem("madwatches-intro"); } catch (e) {}
+      if (!seen && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) html.className += " intro-pending";
+      // Preload only the fonts this language uses (stored in /fonts)
+      var fonts = lang === "ar" ? ["cairo-arabic", "cairo-latin"] : ["cormorant-garamond-latin", "inter-latin"];
+      fonts.forEach(function (name) {
+        var font = document.createElement("link");
+        font.rel = "preload"; font.as = "font"; font.type = "font/woff2"; font.crossOrigin = "anonymous";
+        font.href = "fonts/" + name + ".woff2";
+        document.head.appendChild(font);
+      });
+    })();
+  </script>
+  <link rel="preconnect" href="https://images.unsplash.com" />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+  <!-- Opened by double-clicking the file (no server)? Browsers block local fonts then, so load them from Google. -->
+  <script>
+    if (location.protocol === "file:") {
+      var gf = document.createElement("link");
+      gf.rel = "stylesheet";
+      gf.href = "https://fonts.googleapis.com/css2?family=Cairo:wght@300..700&family=Cormorant+Garamond:ital,wght@0,300..600;1,300..400&family=Inter:wght@300..600&display=swap";
+      document.head.appendChild(gf);
+    }
+  </script>
+</head>
+<body data-page="wishlist">
+
+  <!-- Navbar: filled by js/layout.js (the same on every page) -->
+  <header id="siteHeader" class="site-header"></header>
+
+  <main id="main" class="page">
+
+    <section class="page-head">
+      <div class="container">
+        <nav class="breadcrumbs" data-i18n-attr="aria-label:crumb.label" aria-label="Breadcrumb">
+          <ol><li><a href="index.html" data-i18n="nav.home">Home</a></li><li aria-current="page" data-i18n="nav.wishlist">Wishlist</li></ol>
+        </nav>
+        <p class="eyebrow"><span class="eyebrow__num" lang="en">I</span><span data-i18n="wishlist.eyebrow">Saved</span></p>
+        <h1 class="title" data-i18n="wishlist.title">Your wishlist</h1>
+        <p class="lead" data-i18n="wishlist.text">Watches you've saved, kept on this device.</p>
+        <div class="ticks" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="wishCount">
+      <div class="container">
+        <div class="toolbar" id="wishToolbar">
+          <h2 class="toolbar__count" id="wishCount"></h2>
+          <div class="toolbar__actions">
+            <button class="btn btn--small" type="button" id="wishAddAll"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5.5 8h13l-1 12.5h-11L5.5 8Z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg><span data-i18n="wishlist.addAll">Add all to cart</span></button>
+            <a class="btn btn--small btn--ghost" id="wishShare" href="https://wa.me/201096452755" target="_blank" rel="noopener noreferrer"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20l1.1-3.9A8.4 8.4 0 1 1 20 11.6Z"/><path d="M9 8.6c0 3.4 3 6.4 6.4 6.4l1-1.5-2-1-1 .8a4.4 4.4 0 0 1-2.2-2.2l.8-1-1-2-1.5 1Z"/></svg><span data-i18n="wishlist.share">Share on WhatsApp</span></a>
+            <button class="link" type="button" id="wishClear" data-i18n="wishlist.clear">Clear wishlist</button>
+          </div>
+        </div>
+        <div class="grid grid--4" id="wishGrid"></div>
+        <div class="empty" id="wishEmpty" hidden>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path class="icon-heart" d="M12 20s-7.5-4.6-7.5-10.1A4.3 4.3 0 0 1 12 7.4a4.3 4.3 0 0 1 7.5 2.5C19.5 15.4 12 20 12 20Z"/></svg>
+          <p class="empty__title" data-i18n="wishlist.emptyTitle">Your wishlist is empty</p>
+          <p class="lead" data-i18n="wishlist.emptyText">Tap the heart on any watch to save it here.</p>
+          <a class="btn" href="products.html" data-i18n="cart.emptyButton">Start shopping</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer: filled by js/layout.js -->
+  <footer id="siteFooter" class="site-footer"></footer>
+
+  <!-- Scripts: data → text → shared → this page (defer = run in this order once the page is read) -->
+  <script src="js/products.js" defer></script>
+  <script src="js/i18n.js" defer></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/wishlist.js" defer></script>
+  <script src="js/layout.js" defer></script>
+  <script src="js/pages/wishlist-page.js" defer></script>
+</body>
+</html>
