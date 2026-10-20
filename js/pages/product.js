@@ -78,6 +78,15 @@ function renderGallery() {
     </button>`);
   thumbs.innerHTML = total < 2 ? "" : photoThumbs.join("");
 
+  const reel = document.getElementById("galleryReel");
+  const reelOk = /^https:\/\/(www\.)?instagram\.com\/(reel|reels|p|tv)\/[\w-]+/.test(product.reel || "");
+  reel.hidden = !reelOk;
+  if (reelOk) {
+    reel.href = product.reel;
+    reel.setAttribute("aria-label", t("product.reelCta") + " " + t("social.newTab"));
+    reel.innerHTML = `${icon("instagram")}<span>${t("product.reelCta")}</span><span class="gallery__reel-arrow" aria-hidden="true">${currentLang === "ar" ? "←" : "→"}</span>`;
+  }
+
   const discount = discountPercent(product);
   document.getElementById("galleryBadges").innerHTML = [
     discount ? `<span class="badge" dir="ltr">-${discount}%</span>` : "",

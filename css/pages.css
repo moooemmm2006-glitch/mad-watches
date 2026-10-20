@@ -1859,6 +1859,57 @@ a.contact-card--primary:focus-visible {
   height: 26px;
 }
 
+/* link to the product reel on Instagram */
+.gallery__reel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  margin-top: 0.9rem;
+  padding: 0.8rem 1.2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-ice);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: rgba(162, 197, 227, 0.05);
+  transition: background 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.gallery__reel[hidden] {
+  display: none;
+}
+
+.gallery__reel .icon {
+  width: 18px;
+  height: 18px;
+}
+
+.gallery__reel-arrow {
+  transition: transform 0.3s var(--ease);
+}
+
+.gallery__reel:hover {
+  color: var(--color-ice-bright);
+  border-color: var(--color-ice);
+  background: rgba(162, 197, 227, 0.12);
+}
+
+.gallery__reel:hover .gallery__reel-arrow {
+  transform: translateX(4px);
+}
+
+html[lang="ar"] .gallery__reel {
+  letter-spacing: 0;
+  text-transform: none;
+  font-size: 0.9rem;
+}
+
+html[lang="ar"] .gallery__reel:hover .gallery__reel-arrow {
+  transform: translateX(-4px);
+}
+
 .gallery__thumbs {
   display: flex;
   gap: 0.6rem;
