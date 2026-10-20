@@ -58,6 +58,7 @@ edit the file, save, and publish. Every page updates by itself: home, shop filte
 | `isFeatured` | `true` puts it in the home page's Featured collection. | `true` تضعه في المجموعة المميزة بالصفحة الرئيسية. |
 | `createdAt` | Date added, `"YYYY-MM-DD"`. Used by "Newest" sorting. | تاريخ الإضافة، ويُستخدم في ترتيب "الأحدث". |
 | `images` | 1–4 photos. The first is the main photo; the second appears on hover. | من 1 إلى 4 صور. الأولى هي الرئيسية والثانية تظهر عند المرور بالماوس. |
+| `video` / `videoPoster` | *Optional.* A product video: put the .mp4 in `videos/` and a cover photo in `images/`, e.g. `video: "videos/name.mp4", videoPoster: "images/name-video.jpg"`. It appears as the last thumbnail of the gallery. Keep it under ~5 MB. | *اختياري.* فيديو للمنتج: ضع ملف mp4 في فولدر `videos/` وصورة غلاف في `images/`. يظهر كآخر صورة مصغرة في المعرض. يفضل أقل من 5 ميجا. |
 | `description` / `description_ar` | One or two sentences. | جملة أو جملتان. |
 | `specs` / `specs_ar` | The specifications table. Remove a line you don't know and it's simply hidden. | جدول المواصفات. احذف أي سطر لا تعرفه وسيختفي ببساطة. |
 | `features` | Icon rows on the product page: `"water"`, `"movement"`, `"sapphire"`, `"chronograph"`, `"solar"`, `"lume"`, `"date"`, `"smart"`. | أيقونات المميزات في صفحة المنتج. |

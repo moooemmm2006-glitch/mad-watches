@@ -25,26 +25,59 @@ const SPEC_ROWS = ["movement", "caseSize", "caseMaterial", "strap", "dialColor",
 /* -------------------------------------------------------------------------
    1. GALLERY
    ------------------------------------------------------------------------- */
+// The gallery = the photos + (optional) one video at the end (product.video in js/products.js)
+function galleryCount() {
+  return productImages(product).length + (product.video ? 1 : 0);
+}
+
+function showVideo() {
+  const box = document.getElementById("galleryVideo");
+  if (!box.firstChild) {
+    const poster = product.videoPoster ? ` poster="${escapeHTML(product.videoPoster)}"` : "";
+    box.innerHTML = `<video controls playsinline preload="metadata"${poster} src="${escapeHTML(product.video)}" aria-label="${escapeHTML(t("product.video"))}"></video>`;
+  }
+  document.getElementById("galleryMain").hidden = true;
+  box.hidden = false;
+}
+
+function hideVideo() {
+  const box = document.getElementById("galleryVideo");
+  const v = box.querySelector("video");
+  if (v) v.pause();
+  box.hidden = true;
+  document.getElementById("galleryMain").hidden = false;
+}
+
 function showImage(i) {
   const images = productImages(product);
-  activeImage = (i + images.length) % images.length;
+  const total = galleryCount();
+  activeImage = (i + total) % total;
+  document.querySelectorAll(".gallery__thumb").forEach((b, n) => b.setAttribute("aria-current", n === activeImage));
+  if (activeImage >= images.length) { showVideo(); return; }
+  hideVideo();
   const img = document.getElementById("mainImage");
   img.src = imageUrl(images[activeImage], 1200);
   img.srcset = imageSrcset(images[activeImage]);
   img.sizes = "(max-width: 899px) 100vw, 620px";
   img.alt = productTitle(product) + (images.length > 1 ? " — " + t("product.photo", { n: activeImage + 1, total: images.length }) : "");
-  document.querySelectorAll(".gallery__thumb").forEach((b, n) => b.setAttribute("aria-current", n === activeImage));
 }
 
 function renderGallery() {
   const images = productImages(product);
+  const total = galleryCount();
   const thumbs = document.getElementById("thumbs");
-  thumbs.hidden = images.length < 2;
+  thumbs.hidden = total < 2;
   thumbs.setAttribute("aria-label", t("product.tabDescription"));
-  thumbs.innerHTML = images.length < 2 ? "" : images.map((src, i) => `
+  const photoThumbs = images.map((src, i) => `
     <button class="gallery__thumb" type="button" data-index="${i}" aria-label="${t("product.photo", { n: i + 1, total: images.length })}">
       <img src="${imageUrl(src, 200)}" alt="" width="200" height="200" loading="lazy" onerror="${IMAGE_FALLBACK}" />
-    </button>`).join("");
+    </button>`);
+  if (product.video) photoThumbs.push(`
+    <button class="gallery__thumb gallery__thumb--video" type="button" data-index="${images.length}" aria-label="${escapeHTML(t("product.video"))}">
+      ${product.videoPoster ? `<img src="${escapeHTML(product.videoPoster)}" alt="" width="200" height="200" loading="lazy" onerror="${IMAGE_FALLBACK}" />` : ""}
+      <span class="gallery__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
+    </button>`);
+  thumbs.innerHTML = total < 2 ? "" : photoThumbs.join("");
 
   const discount = discountPercent(product);
   document.getElementById("galleryBadges").innerHTML = [

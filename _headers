@@ -16,6 +16,10 @@
 /images/*
   Cache-Control: public, max-age=604800
 
+# Product videos
+/videos/*
+  Cache-Control: public, max-age=604800
+
 # The docs folder is for you, not for visitors or Google
 /docs/*
   X-Robots-Tag: noindex

@@ -278,6 +278,8 @@ const PRODUCTS = [
       "images/casio-edifice-silver-3.jpg",
       "images/casio-edifice-silver-4.jpg"
     ],
+    video: "videos/casio-edifice-silver.mp4",
+    videoPoster: "images/casio-edifice-silver-video.jpg",
     description: "A classic men's watch in the Casio Edifice style: silver sunray dial with a date window, red seconds hand and a black leather strap. This is a first copy (not original). It comes with the Casio box and bag.",
     description_ar: "ساعة رجالي كلاسيكية بتصميم كاسيو إديفايس: ميناء فضي بتأثير الأشعة مع نافذة تاريخ وعقرب ثواني أحمر وسوار جلد أسود. فيرست كوبي (غير أصلية). تأتي مع بوكس وشنطة كاسيو.",
     specs:    { movement: "Quartz", strap: "Black leather strap", dialColor: "Silver" },
