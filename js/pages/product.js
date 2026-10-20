@@ -4,9 +4,8 @@
      1. Gallery: thumbnails, hover zoom (desktop), swipe (phones), lightbox
      2. Info: price block, stock, quantity, buttons, features
      3. Tabs: description / specifications / shipping / reviews
-     4. Wrist & strap size guide
-     5. You may also like + recently viewed
-     6. Title, description and Google data (Product schema)
+     4. You may also like + recently viewed
+     5. Title, description and Google data (Product schema)
    Nothing to edit here: every product in js/products.js gets its page.
    ========================================================================= */
 
@@ -278,46 +277,7 @@ document.querySelector(".tabs").addEventListener("keydown", (e) => {
 
 
 /* -------------------------------------------------------------------------
-   4. WRIST & STRAP SIZE GUIDE
-   ------------------------------------------------------------------------- */
-const WRIST_GUIDE = [
-  { max: 15,   label: "< 15 cm",      min: 30, maxCase: 36 },
-  { max: 16.5, label: "15 – 16.5 cm", min: 34, maxCase: 39 },
-  { max: 18,   label: "16.5 – 18 cm", min: 38, maxCase: 42 },
-  { max: 19.5, label: "18 – 19.5 cm", min: 41, maxCase: 44 },
-  { max: 99,   label: "> 19.5 cm",    min: 43, maxCase: 47 }
-];
-
-function renderSizeGuide() {
-  document.getElementById("sizeTable").innerHTML = WRIST_GUIDE.map((r) =>
-    `<tr${product.caseSize >= r.min && product.caseSize <= r.maxCase ? ' class="is-match"' : ""}><td dir="ltr">${r.label.replace("cm", currentLang === "ar" ? "سم" : "cm")}</td><td dir="ltr">${r.min}–${r.maxCase} ${currentLang === "ar" ? "مم" : "mm"}</td></tr>`).join("");
-  checkFit();
-}
-
-// Draws the case to scale on a wrist seen from above (wrist width ≈ circumference ÷ π)
-function drawCaseToScale(wristCm) {
-  const wristWidthMm = (wristCm || 17) * 10 / Math.PI;
-  const r = (product.caseSize || 40) / 2 * (96 / (wristWidthMm / 2));
-  document.getElementById("sgCase").setAttribute("r", Math.min(110, r).toFixed(1));
-}
-
-function checkFit() {
-  const wrist = Number(document.getElementById("wristInput").value);
-  drawCaseToScale(wrist >= 12 && wrist <= 24 ? wrist : 17);
-  const out = document.getElementById("sizeResult");
-  if (!wrist || wrist < 12 || wrist > 24 || !product.caseSize) { out.textContent = ""; return; }
-  const row = WRIST_GUIDE.find((r) => wrist <= r.max);
-  const vars = { size: product.caseSize, wrist };
-  const verdict = product.caseSize < row.min ? "size.fitSmall" : product.caseSize > row.maxCase ? "size.fitLarge" : "size.fitGood";
-  out.textContent = t(verdict, vars) + " " + t("size.ideal", { min: row.min, max: row.maxCase });
-  out.className = "size-guide__result " + (verdict === "size.fitGood" ? "is-good" : "is-ok");
-}
-
-document.getElementById("sizeForm").addEventListener("submit", (e) => { e.preventDefault(); checkFit(); });
-
-
-/* -------------------------------------------------------------------------
-   5. YOU MAY ALSO LIKE + RECENTLY VIEWED
+   4. YOU MAY ALSO LIKE + RECENTLY VIEWED
    ------------------------------------------------------------------------- */
 function renderRelated() {
   const sameBrand = PRODUCTS.filter((p) => p.brand === product.brand && p.id !== product.id);
@@ -339,7 +299,7 @@ function renderRelated() {
 
 
 /* -------------------------------------------------------------------------
-   6. PAGE META + GOOGLE DATA
+   5. PAGE META + GOOGLE DATA
    ------------------------------------------------------------------------- */
 function renderMeta() {
   const name = localized(product, "name");
@@ -391,7 +351,7 @@ function renderMeta() {
    ------------------------------------------------------------------------- */
 function renderProductPage() {
   if (!product) {
-    ["product", "productTabs", "sizeGuide", "related", "recent"].forEach((id) => (document.getElementById(id).hidden = true));
+    ["product", "productTabs", "related", "recent"].forEach((id) => (document.getElementById(id).hidden = true));
     document.getElementById("notFound").hidden = false;
     setPageMeta({ title: t("product.notFound") + " | Mad Watches", description: t("product.notFoundText") });
     return;
@@ -400,7 +360,6 @@ function renderProductPage() {
   renderInfo();
   renderBuy();
   renderTabs();
-  renderSizeGuide();
   renderRelated();
   renderMeta();
 }
