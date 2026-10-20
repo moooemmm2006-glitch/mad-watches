@@ -262,4 +262,27 @@ const PRODUCTS = [
   /* Your watches go here: one { … } block each, separated by commas.
      The full example and every field are in docs/ADD-PRODUCTS.md. */
 
+  {
+    id: "casio-edifice-silver-first-copy",
+    brand: "casio",
+    name: "Edifice Classic Silver (First Copy)",
+    name_ar: "إديفايس كلاسيك فضي (فيرست كوبي)",
+    price: 600,
+    gender: "men", style: "dress", strap: "leather", movement: "quartz",
+    dialColor: "silver",
+    inStock: true, stockCount: 7, isNew: false, isFeatured: false,
+    createdAt: "2026-10-20",
+    images: [
+      "images/casio-edifice-silver-1.jpg",
+      "images/casio-edifice-silver-2.jpg",
+      "images/casio-edifice-silver-3.jpg",
+      "images/casio-edifice-silver-4.jpg"
+    ],
+    description: "A classic men's watch in the Casio Edifice style: silver sunray dial with a date window, red seconds hand and a black leather strap. This is a first copy (not original). It comes with the Casio box and bag.",
+    description_ar: "ساعة رجالي كلاسيكية بتصميم كاسيو إديفايس: ميناء فضي بتأثير الأشعة مع نافذة تاريخ وعقرب ثواني أحمر وسوار جلد أسود. فيرست كوبي (غير أصلية). تأتي مع بوكس وشنطة كاسيو.",
+    specs:    { movement: "Quartz", strap: "Black leather strap", dialColor: "Silver" },
+    specs_ar: { movement: "كوارتز", strap: "سوار جلد أسود", dialColor: "فضي" },
+    features: ["date"]
+  }
+
 ];
