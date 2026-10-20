@@ -43,6 +43,7 @@ function caseSizeGroup(p) {
 // Lowest and highest price in the shop (rounded to nice numbers)
 function priceBounds() {
   const prices = PRODUCTS.map((p) => p.price);
+  if (!prices.length) return { min: 0, max: 0 };   // empty catalog
   return { min: Math.floor(Math.min(...prices) / 100) * 100, max: Math.ceil(Math.max(...prices) / 1000) * 1000 };
 }
 

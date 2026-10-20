@@ -8,7 +8,16 @@ function renderBrandsPage() {
   setPageMeta({ title: t("meta.brands"), description: t("meta.brandsDesc") });
   const grid = document.getElementById("brandGrid");
 
-  grid.innerHTML = BRANDS.map((b, i) => {
+  const brands = stockedBrands();   // brands without watches stay hidden until one is added
+  const soon = document.getElementById("brandsSoon");
+  if (soon) soon.remove();
+  grid.hidden = brands.length === 0;
+  if (!brands.length) {
+    grid.innerHTML = "";
+    grid.insertAdjacentHTML("afterend", `<div id="brandsSoon">${comingSoonHTML()}</div>`);
+    return;
+  }
+  grid.innerHTML = brands.map((b, i) => {
     const items = PRODUCTS.filter((p) => p.brand === b.id);
     const from = items.length ? Math.min(...items.map((p) => p.price)) : 0;
     const onSale = items.filter((p) => discountPercent(p) > 0).length;

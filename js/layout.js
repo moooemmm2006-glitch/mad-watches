@@ -261,9 +261,11 @@ function setupSearch() {
     active = -1;
     if (!q) {
       const popular = PRODUCTS.filter((p) => p.isFeatured).slice(0, 4);
+      const brands = stockedBrands().slice(0, 10);
+      if (!popular.length && !brands.length) { results.innerHTML = `<p class="search-empty">${t("soon.title")}</p>`; return; }
       results.innerHTML = `
-        <div><p class="search-results__title">${t("search.popular")}</p>${popular.map(suggestionHTML).join("")}</div>
-        <div><p class="search-results__title">${t("search.brands")}</p><div style="display:flex;flex-wrap:wrap;gap:.4rem">${BRANDS.slice(0, 10).map((b) => `<a class="chip" href="${brandShopUrl(b.id)}">${escapeHTML(localized(b, "name"))}</a>`).join("")}</div></div>`;
+        ${popular.length ? `<div><p class="search-results__title">${t("search.popular")}</p>${popular.map(suggestionHTML).join("")}</div>` : ""}
+        <div><p class="search-results__title">${t("search.brands")}</p><div style="display:flex;flex-wrap:wrap;gap:.4rem">${brands.map((b) => `<a class="chip" href="${brandShopUrl(b.id)}">${escapeHTML(localized(b, "name"))}</a>`).join("")}</div></div>`;
       return;
     }
     const found = searchCatalog(q, 6);

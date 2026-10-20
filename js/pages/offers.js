@@ -27,12 +27,16 @@ function renderOffersPage(appendFrom) {
     observeReveals(grid);
   }
 
+  if (catalogIsEmpty()) grid.innerHTML = comingSoonHTML();   // no watches at all yet
   document.getElementById("offersCount").textContent = t("offers.count", { n: list.length });
-  document.getElementById("offersEmpty").hidden = list.length > 0;
+  document.querySelector(".toolbar").hidden = list.length === 0;
+  document.getElementById("offersEmpty").hidden = list.length > 0 || catalogIsEmpty();
   document.getElementById("offersMoreBox").hidden = list.length === 0;
   document.getElementById("offersMore").hidden = offersShown >= list.length;
   document.getElementById("offersShowing").textContent = t("shop.showing", { shown: Math.min(offersShown, list.length), total: list.length });
-  startCountdown(document.getElementById("offersCountdown"));
+  const countdown = document.getElementById("offersCountdown");
+  countdown.hidden = list.length === 0;   // no countdown without offers
+  if (list.length) startCountdown(countdown);
 }
 
 document.getElementById("offersMore").addEventListener("click", () => {

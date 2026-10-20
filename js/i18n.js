@@ -283,6 +283,9 @@ const TRANSLATIONS = {
     "offers.secs": "Sec",
     "offers.ended": "These offers have ended. New ones are coming soon.",
     "offers.empty": "No offers right now. Check back soon!",
+    "soon.title": "Coming soon",
+    "soon.text": "Our first watches are on their way. Follow us to be the first to see them.",
+    "soon.follow": "Follow us on Instagram",
     "offers.count": "{n} watches on sale",
 
     /* --- About --- */
@@ -531,12 +534,12 @@ const TRANSLATIONS = {
 
     /* --- Page titles + descriptions (Google / link previews) --- */
     "meta.home": "Mad Watches | Original Watches in Egypt — Beauty & Simplicity",
-    "meta.homeDesc": "Original watches from Casio, Seiko, Tissot, Rolex, Omega and more. Honest prices, cash on delivery across Egypt, 14-day exchange.",
+    "meta.homeDesc": "Original watches, chosen for their beauty and simplicity. Honest prices, cash on delivery across Egypt, 14-day exchange.",
     "meta.shop": "Shop All Watches | Mad Watches",
     "meta.shopDesc": "Browse original men's and women's watches. Filter by brand, price, style, strap, movement and size. Cash on delivery across Egypt.",
     "meta.brandShop": "{brand} Watches in Egypt | Mad Watches",
     "meta.brands": "All Brands | Mad Watches",
-    "meta.brandsDesc": "From Casio and Seiko to Tissot, Omega and Rolex: every watch brand we carry.",
+    "meta.brandsDesc": "Every watch brand we carry at Mad Watches.",
     "meta.offers": "Watch Offers & Discounts | Mad Watches",
     "meta.offersDesc": "Original watches at honest discounts of up to 40%. Limited time, while stock lasts. Cash on delivery across Egypt.",
     "meta.about": "About Us | Mad Watches",
@@ -819,6 +822,9 @@ const TRANSLATIONS = {
     "offers.secs": "ثانية",
     "offers.ended": "انتهت هذه العروض، وعروض جديدة قريباً.",
     "offers.empty": "لا توجد عروض الآن. تابعنا قريباً!",
+    "soon.title": "قريباً",
+    "soon.text": "أول ساعاتنا في الطريق. تابعنا لتكون أول من يشاهدها.",
+    "soon.follow": "تابعنا على إنستجرام",
     "offers.count": "{n} ساعة عليها خصم",
 
     /* --- About --- */
@@ -1067,12 +1073,12 @@ const TRANSLATIONS = {
 
     /* --- Page titles + descriptions --- */
     "meta.home": "Mad Watches | ساعات أصلية في مصر — الجمال والبساطة",
-    "meta.homeDesc": "ساعات أصلية من كاسيو وسيكو وتيسو ورولكس وأوميغا وغيرها. أسعار صادقة، دفع عند الاستلام في كل مصر، واستبدال خلال 14 يوماً.",
+    "meta.homeDesc": "ساعات أصلية مختارة لجمالها وبساطتها. أسعار صادقة، دفع عند الاستلام في كل مصر، واستبدال خلال 14 يوماً.",
     "meta.shop": "تسوّق كل الساعات | Mad Watches",
     "meta.shopDesc": "تصفح ساعات رجالي وحريمي أصلية. صفِّ حسب الماركة والسعر والطابع والسوار والحركة والمقاس. دفع عند الاستلام في كل مصر.",
     "meta.brandShop": "ساعات {brand} في مصر | Mad Watches",
     "meta.brands": "كل الماركات | Mad Watches",
-    "meta.brandsDesc": "من كاسيو وسيكو إلى تيسو وأوميغا ورولكس: كل ماركات الساعات المتوفرة لدينا.",
+    "meta.brandsDesc": "كل ماركات الساعات المتوفرة لدى Mad Watches.",
     "meta.offers": "عروض وخصومات الساعات | Mad Watches",
     "meta.offersDesc": "ساعات أصلية بخصومات حقيقية تصل إلى 40%. لفترة محدودة وحتى نفاد الكمية. دفع عند الاستلام في كل مصر.",
     "meta.about": "من نحن | Mad Watches",

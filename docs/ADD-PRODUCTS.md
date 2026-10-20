@@ -71,7 +71,7 @@ edit the file, save, and publish. Every page updates by itself: home, shop filte
 
 | Task | How | الطريقة |
 | --- | --- | --- |
-| **Add a watch** | Copy a whole `{ … },` block inside `PRODUCTS`, paste it under the same brand, change the values. | انسخ كتلة `{ … },` كاملة والصقها تحت نفس الماركة وغيّر القيم. |
+| **Add a watch** | Copy the example block from section 1 into `PRODUCTS`, change the values, and separate blocks with a comma. Only brands that have at least one watch appear on the site. | انسخ الكتلة المثال من القسم 1 داخل `PRODUCTS` وغيّر القيم، وافصل بين الكتل بفاصلة. الماركات تظهر في الموقع فقط عندما يكون لها ساعة واحدة على الأقل. |
 | **Start a discount** | Put the old price in `originalPrice` and the new one in `price`. | ضع السعر القديم في `originalPrice` والجديد في `price`. |
 | **End a discount** | Delete `originalPrice: …,`. | احذف `originalPrice: …,`. |
 | **Sold out** | `stockCount: 0` | `stockCount: 0` |
@@ -111,10 +111,9 @@ Its shop page works right away: `products.html?brand=hublot`.
    اجعل حجم الصورة **أقل من 250 كيلوبايت** تقريباً، واضغطها مجاناً على squoosh.app.
 4. Write the paths in `images: [ … ]`.
 
-> All current photos are free Unsplash samples, and some show a different watch than the name.
-> **Replace them with photos of your real watches.** The extra gallery photos are zoomed crops of the main one.
+> The catalog starts empty. Until the first watch is added, the shop, offers, brands and home sections show a "Coming soon" message.
 >
-> كل الصور الحالية صور تجريبية مجانية من Unsplash وبعضها لساعة مختلفة عن الاسم. **استبدلها بصور ساعاتك الحقيقية.**
+> المتجر يبدأ فارغاً. إلى أن تُضاف أول ساعة، تظهر رسالة "قريباً" في المتجر والعروض والماركات والصفحة الرئيسية.
 
 ---
 

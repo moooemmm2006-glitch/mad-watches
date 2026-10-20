@@ -51,7 +51,7 @@ function buildFilterForm() {
       <div class="fsearch">${icon("search")}<input class="input" id="fSearch" type="search" value="${escapeHTML(state.q)}" placeholder="${escapeHTML(t("shop.searchPlaceholder"))}" autocomplete="off" /></div>
     </div>
 
-    ${group("brand", t("shop.brand"), `<div class="fgroup__scroll">${checkList("brand", BRANDS.map((b) => b.id), (id) => brandName(id))}</div>`, true)}
+    ${group("brand", t("shop.brand"), `<div class="fgroup__scroll">${checkList("brand", stockedBrands().map((b) => b.id), (id) => brandName(id))}</div>`, true)}
 
     ${group("price", t("shop.price"), `
       <div class="range" style="--lo:${minPos / SLIDER_STEPS};--hi:${maxPos / SLIDER_STEPS}">
@@ -150,8 +150,19 @@ function renderHeading() {
     : { title: t("meta.shop"), description: t("meta.shopDesc"), path: "products.html" });
 }
 
+// No watches in the catalog yet: one "Coming soon" message instead of filters and results
+function renderComingSoon() {
+  renderHeading();
+  document.querySelector(".shop").classList.add("shop--soon");
+  filtersEl.hidden = true;
+  document.querySelector(".shop__bar").hidden = true;
+  ["activeChips", "loadMoreBox", "noResults"].forEach((id) => (document.getElementById(id).hidden = true));
+  grid.innerHTML = comingSoonHTML();
+}
+
 function render(opts) {
   opts = opts || {};
+  if (catalogIsEmpty()) { renderComingSoon(); return; }
   const list = filterProducts(state);
   const total = list.length;
   shown = Math.min(Math.max(shown, PAGE_SIZE), Math.max(total, PAGE_SIZE));

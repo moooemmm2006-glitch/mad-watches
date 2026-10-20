@@ -91,10 +91,10 @@ function renderQuiz() {
       ${progress}
       <p class="eyebrow">${t("quiz.title")}</p>
       <h2 class="title title--sm" id="quizQuestion">${t("quiz.resultsTitle")}</h2>
-      <p class="lead">${t(exact ? "quiz.resultsText" : "quiz.none")}</p>
-      <div class="grid grid--4 quiz__results">${list.map((p, i) => productCardHTML(p, i, { noReveal: true, enter: true, enterIndex: i, sizes: "(max-width: 759px) 50vw, 230px" })).join("")}</div>
+      ${catalogIsEmpty() ? comingSoonHTML() : `<p class="lead">${t(exact ? "quiz.resultsText" : "quiz.none")}</p>`}
+      <div class="grid grid--4 quiz__results"${list.length ? "" : " hidden"}>${list.map((p, i) => productCardHTML(p, i, { noReveal: true, enter: true, enterIndex: i, sizes: "(max-width: 759px) 50vw, 230px" })).join("")}</div>
       <div class="cta__actions">
-        <a class="btn" href="${quizShopLink()}">${t("quiz.seeAll")}</a>
+        ${catalogIsEmpty() ? "" : `<a class="btn" href="${quizShopLink()}">${t("quiz.seeAll")}</a>`}
         <button type="button" class="btn btn--ghost" data-quiz-restart>${t("quiz.restart")}</button>
       </div>
     </div>`;

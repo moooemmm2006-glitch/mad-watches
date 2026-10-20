@@ -947,6 +947,11 @@ html[lang="ar"] .brand-card__origin { font-size: 0.8rem; }
   margin-top: 1.4rem;
 }
 
+/* "Coming soon" while the catalog has no watches yet (js/main.js) */
+.grid > .coming-soon { grid-column: 1 / -1; }
+.coming-soon .cta__actions { margin-top: 1.2rem; }
+.coming-soon .cta__actions .btn { margin-top: 0; }
+
 .countdown--center {
   justify-content: center;
   flex-wrap: wrap;
@@ -1253,6 +1258,7 @@ a.contact-card--primary:focus-visible {
 
 @media (min-width: 1080px) {
   .shop { grid-template-columns: 270px minmax(0, 1fr); }
+  .shop.shop--soon { grid-template-columns: minmax(0, 1fr); }   /* no filters while the catalog is empty */
 }
 
 /* ---------- Filters: sidebar on desktop ---------- */

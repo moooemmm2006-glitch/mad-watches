@@ -44,7 +44,8 @@ function renderFeatured() {
   const grid = document.getElementById("featuredGrid");
   let list = PRODUCTS.filter((p) => p.isFeatured);
   if (list.length < 4) list = list.concat(PRODUCTS.filter((p) => !p.isFeatured)).slice(0, 8);
-  grid.innerHTML = list.slice(0, 8).map((p, i) => productCardHTML(p, i)).join("");
+  grid.innerHTML = list.length ? list.slice(0, 8).map((p, i) => productCardHTML(p, i)).join("") : comingSoonHTML();
+  grid.nextElementSibling.hidden = list.length === 0;   // "View all"
   observeReveals(grid);
 }
 
@@ -61,9 +62,12 @@ function renderOffers() {
 }
 
 function renderBrandStrip() {
-  const links = BRANDS.map((b) => `<a href="${brandShopUrl(b.id)}">${escapeHTML(localized(b, "name"))}</a>`).join("");
+  const brands = stockedBrands();   // only brands that have watches
+  const strip = document.getElementById("brandStrip");
+  strip.closest("section").hidden = brands.length === 0;
+  const links = brands.map((b) => `<a href="${brandShopUrl(b.id)}">${escapeHTML(localized(b, "name"))}</a>`).join("");
   // the list is repeated so the sliding strip loops without a gap
-  document.getElementById("brandStrip").innerHTML = links + links.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ');
+  strip.innerHTML = links + links.replace(/<a /g, '<a tabindex="-1" aria-hidden="true" ');
 }
 
 /* ---------- "Follow our world": one card per social link in STORE ---------- */

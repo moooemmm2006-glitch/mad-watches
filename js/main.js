@@ -386,6 +386,32 @@ function skeletonCards(n) {
   ).join("");
 }
 
+/* ---------- Empty catalog: "Coming soon" ----------
+   While PRODUCTS in js/products.js has no watches yet, the shop, offers,
+   brands and home sections show this message instead of empty grids. */
+function catalogIsEmpty() {
+  return PRODUCTS.length === 0;
+}
+
+// Only the brands that have at least one watch (brand strip, brands page, filters)
+function stockedBrands() {
+  return BRANDS.filter((b) => PRODUCTS.some((p) => p.brand === b.id));
+}
+
+function comingSoonHTML() {
+  const instagram = socialAccounts().find((s) => s.id === "instagram");
+  return `
+    <div class="empty coming-soon">
+      ${icon("clock")}
+      <p class="empty__title">${t("soon.title")}</p>
+      <p class="lead">${t("soon.text")}</p>
+      <div class="cta__actions">
+        ${instagram ? `<a class="btn" href="${escapeHTML(instagram.url)}" target="_blank" rel="noopener noreferrer">${t("soon.follow")}</a>` : ""}
+        <a class="btn btn--ghost" href="${chatLink()}" target="_blank" rel="noopener noreferrer">${t("social.chat")}</a>
+      </div>
+    </div>`;
+}
+
 
 /* -------------------------------------------------------------------------
    5. TOAST MESSAGES
@@ -536,7 +562,7 @@ function searchCatalog(query, limit) {
     .filter(Boolean)
     .sort((a, b) => b.score - a.score)
     .map((x) => x.p);
-  const brands = BRANDS.filter((b) => {
+  const brands = stockedBrands().filter((b) => {
     const text = normalizeText(b.name + " " + (b.name_ar || ""));
     return words.every((w) => text.includes(w));
   });
