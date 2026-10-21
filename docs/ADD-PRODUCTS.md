@@ -83,7 +83,7 @@ edit the file, save, and publish. Every page updates by itself: home, shop filte
 | **Announcement bar** | `STORE.announcement` (`[]` hides it). | `STORE.announcement` (`[]` لإخفائه). |
 | **Payment methods** | `STORE.paymentMethods` → `enabled: true/false`. | `STORE.paymentMethods` ← `enabled: true/false`. |
 | **Working hours** | `STORE.hours`: `"24/7"` shows "Open 24/7" everywhere. For other hours: `{ text: "…", text_ar: "…" }` (and update `STORE.openingHours` for Google). | `STORE.hours`: `"24/7"` تُظهر "متاحين 24 ساعة" في كل مكان. لمواعيد أخرى: `{ text: "…", text_ar: "…" }` (وعدّل `STORE.openingHours` لجوجل). |
-| **Customer review video** | Paste one Instagram reel/post link, or a video file path like `"videos/customer-review-1.mp4"`, in `STORE.reviewVideo` (and its photo in `STORE.reviewVideoPoster`). It appears on the home page and the Reviews tab of every product. `""` shows nothing. | الصق رابط ريل/بوست واحد من إنستجرام في `STORE.reviewVideo` ليظهر في الرئيسية وفي تبويب التقييمات لكل منتج. `""` لا يُظهر شيئاً. |
+| **Customer review video** | Paste one Instagram reel/post link in `STORE.reviewVideo`. It appears on the home page and the Reviews tab of every product. `""` shows nothing. | الصق رابط ريل/بوست واحد من إنستجرام في `STORE.reviewVideo` ليظهر في الرئيسية وفي تبويب التقييمات لكل منتج. `""` لا يُظهر شيئاً. |
 
 ### Add a brand · إضافة ماركة
 Add a block to `BRANDS`. The order there is the order on the site:
