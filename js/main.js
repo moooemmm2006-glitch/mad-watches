@@ -272,8 +272,16 @@ function reviewVideoUrl() {
   return /^https:\/\/(www\.)?instagram\.com\/(p|reel|reels|tv)\/[\w-]+/.test(url) ? url : "";
 }
 
+// A video file on the site itself (e.g. "videos/customer-review-1.mp4")
+function reviewVideoFile() {
+  const src = String(STORE.reviewVideo || "").trim();
+  return /\.(mp4|webm)$/i.test(src) ? src : "";
+}
+
 function realReviewsHTML() {
   const video = reviewVideoUrl();
+  const file = reviewVideoFile();
+  const poster = STORE.reviewVideoPoster ? ` poster="${escapeHTML(STORE.reviewVideoPoster)}"` : "";
   return `
     <p class="real-reviews__text">${t("reviews.text")}</p>
     ${STORE.instagram ? `<a class="btn real-reviews__btn" href="${escapeHTML(STORE.instagram)}" target="_blank" rel="noopener noreferrer"
@@ -282,6 +290,9 @@ function realReviewsHTML() {
       <blockquote class="instagram-media" data-instgrm-permalink="${escapeHTML(video)}" data-instgrm-version="14">
         <a href="${escapeHTML(video)}" target="_blank" rel="noopener noreferrer">${t("reviews.watch")}</a>
       </blockquote>
+    </div>` : ""}
+    ${file ? `<div class="review-video review-video--file">
+      <video controls playsinline preload="none"${poster} src="${escapeHTML(file)}" aria-label="${escapeHTML(t("reviews.video"))}"></video>
     </div>` : ""}`;
 }
 
@@ -289,7 +300,7 @@ function realReviewsHTML() {
 function renderRealReviews(root) {
   (root || document).querySelectorAll("[data-real-reviews]").forEach((box) => {
     box.innerHTML = realReviewsHTML();
-    const video = box.querySelector(".review-video");
+    const video = box.querySelector(".review-video .instagram-media");   // only Instagram needs its script
     if (!video) return;
     if (!("IntersectionObserver" in window)) return loadInstagramEmbed();
     const io = new IntersectionObserver((entries) => {

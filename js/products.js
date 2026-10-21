@@ -45,10 +45,13 @@ const STORE = {
   /* --- Customer reviews ---
      Real reviews live in the highlights on Instagram (the button links to
      the "instagram" link above).
-     reviewVideo: paste ONE Instagram reel/post link to show it on the home
-     page and on every product page, e.g. "https://www.instagram.com/reel/ABC123/".
-     Leave it "" and nothing is shown. */
-  reviewVideo: "",
+     reviewVideo: ONE customer video shown on the home page and on every
+     product page. Either an Instagram reel/post link,
+     e.g. "https://www.instagram.com/reel/ABC123/", or a video file in the
+     videos folder, e.g. "videos/customer-review-1.mp4" (reviewVideoPoster is
+     the photo shown before it plays). Leave it "" and nothing is shown. */
+  reviewVideo: "videos/customer-review-1.mp4",
+  reviewVideoPoster: "images/customer-review-1.jpg",
 
   /* --- Money --- */
   currency: "EGP",

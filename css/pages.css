@@ -546,6 +546,17 @@ html[lang="ar"] .hero__tagline {
 }
 
 /* Instagram sets a fixed min-width; let the video fit small phones */
+.review-video--file { width: min(100%, 360px); }
+
+.review-video video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 2px);
+  background: #000;
+}
+
 .review-video .instagram-media {
   width: 100% !important;
   min-width: 0 !important;
