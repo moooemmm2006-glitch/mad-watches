@@ -1018,9 +1018,15 @@ select option {
   flex-shrink: 0;
 }
 
-.nav__logo img {
+/* The store name (images/wordmark.png): navbar, footer, intro */
+.wordmark {
+  display: block;
   width: auto;
-  height: 50px;
+  max-width: none;
+}
+
+.nav__logo .wordmark {
+  height: 28px;
 }
 
 .nav__menu {
@@ -1341,7 +1347,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 @media (max-width: 420px) {
   .nav__inner { gap: 0.6rem; }
-  .nav__logo img { height: 42px; }
+  .nav__logo .wordmark { height: 22px; }
   .icon-btn { width: 40px; }
 }
 
@@ -1366,9 +1372,8 @@ input[type="search"]::-webkit-search-cancel-button {
   .footer__top { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
 }
 
-.footer__logo img {
-  width: auto;
-  height: 92px;
+.footer__logo .wordmark {
+  height: 40px;
 }
 
 .footer__tagline {
@@ -2319,42 +2324,11 @@ html.intro-pending body {
   visibility: hidden;
 }
 
-.intro__dial {
-  position: relative;
-  width: min(62vmin, 320px);
-  aspect-ratio: 1 / 1;
-}
-
-.intro__dial svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-/* each tick draws itself, one after another around the circle */
-.intro__tick {
-  stroke: var(--color-ice);
-  stroke-width: 1.2;
-  stroke-linecap: round;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw 0.35s var(--ease) forwards;
-  animation-delay: calc(var(--i) * 12ms);
-}
-
-.intro__tick--hour {
-  stroke-width: 2;
-}
-
-.intro__logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 62%;
+.intro__name {
+  width: min(72vw, 520px);
   height: auto;
-  transform: translate(-50%, -50%);
   opacity: 0;
-  animation: fadeIn 0.6s var(--ease) 0.75s forwards;
+  animation: fadeIn 0.8s var(--ease) 0.15s forwards;
 }
 
 /* Smooth fade between pages (supported browsers only, no JavaScript needed) */

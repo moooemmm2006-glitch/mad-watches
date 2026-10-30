@@ -32,7 +32,6 @@ const NAV_LINKS = [
   { id: "brands",      href: "brands.html",      key: "nav.brands" },
   { id: "offers",      href: "offers.html",      key: "nav.offers" },
   { id: "reviews",     href: "reviews.html",     key: "nav.reviews" },
-  { id: "about",       href: "about.html",       key: "nav.about" },
   { id: "contact",     href: "contact.html",     key: "nav.contact" }
 ];
 
@@ -83,7 +82,7 @@ function renderHeader() {
     <div class="nav">
       <div class="nav__inner container">
         <a class="nav__logo" href="index.html" data-i18n-attr="aria-label:nav.logoAlt">
-          <img src="images/logo-120.png" srcset="images/logo-120.png 1x, images/logo-240.png 2x" width="233" height="120" alt="Mad Watches" />
+          <img class="wordmark" src="images/wordmark.png" width="713" height="118" alt="Mad Watches" />
         </a>
 
         <nav class="nav__menu" id="navMenu" data-i18n-attr="aria-label:nav.main">
@@ -168,7 +167,7 @@ function renderFooter() {
     <div class="container footer__top">
       <div class="footer__brand">
         <a class="footer__logo" href="index.html" data-i18n-attr="aria-label:nav.logoAlt">
-          <img src="images/logo-240.png" width="465" height="240" alt="Mad Watches" loading="lazy" />
+          <img class="wordmark" src="images/wordmark.png" width="713" height="118" alt="Mad Watches" />
         </a>
         <p class="footer__tagline" data-i18n="footer.tagline"></p>
         <p class="footer__follow" data-i18n="social.followUs"></p>
@@ -451,26 +450,18 @@ function renderWhatsappButton() {
 
 /* -------------------------------------------------------------------------
    8. INTRO ANIMATION
-   The logo's dial ticks draw in a circle, the logo appears, then it fades
-   into the site. Shown once per visit (not again until the browser is
+   The store name fades in on the navy background, then it fades into
+   the site. Shown once per visit (not again until the browser is
    reopened), and never for visitors who prefer reduced motion.
    ------------------------------------------------------------------------- */
 function runIntro() {
   const html = document.documentElement;
   if (!html.classList.contains("intro-pending")) return;
 
-  let ticks = "";
-  for (let i = 0; i < 60; i++) {
-    const a = i * Math.PI / 30, hour = i % 5 === 0;
-    const r1 = 104, r2 = hour ? 90 : 97;
-    ticks += `<line class="intro__tick${hour ? " intro__tick--hour" : ""}" style="--i:${i}" pathLength="1"
-      x1="${(r1 * Math.sin(a)).toFixed(2)}" y1="${(-r1 * Math.cos(a)).toFixed(2)}" x2="${(r2 * Math.sin(a)).toFixed(2)}" y2="${(-r2 * Math.cos(a)).toFixed(2)}"/>`;
-  }
   const intro = document.createElement("div");
   intro.className = "intro";
   intro.setAttribute("aria-hidden", "true");
-  intro.innerHTML = `<div class="intro__dial"><svg viewBox="-112 -112 224 224">${ticks}</svg>
-    <img class="intro__logo" src="images/logo-240.png" alt="" width="465" height="240" /></div>`;
+  intro.innerHTML = `<img class="wordmark intro__name" src="images/wordmark.png" width="713" height="118" alt="" />`;
   document.body.appendChild(intro);
   html.classList.remove("intro-pending");
   try { sessionStorage.setItem("madwatches-intro", "1"); } catch (err) { /* ignore */ }
