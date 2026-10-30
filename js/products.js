@@ -55,6 +55,10 @@ const STORE = {
      Leave it "" and they open the Instagram account instead. */
   reviewsHighlight: "https://www.instagram.com/stories/highlights/18093742604558651/",
 
+  /* --- "Automatic or quartz?" section on the home page ---
+     The Instagram reel shown next to the comparison. "" hides it. */
+  learnReel: "https://www.instagram.com/reel/DbyamVhN1YG/",
+
   /* --- Best Seller page (bestsellers.html) ---
      One Instagram reel for the men's section and one for the women's.
      Watches show there too when they have bestSeller: true in PRODUCTS.

@@ -172,17 +172,60 @@
         </svg>
         </div>
       </div>
-      <a class="hero__scroll" href="#featured" data-i18n-attr="aria-label:home.scroll" aria-label="Scroll down"></a>
+      <a class="hero__scroll" href="#learn" data-i18n-attr="aria-label:home.scroll" aria-label="Scroll down"></a>
     </section>
 
 
     <!-- ===================================================================
-         II. FEATURED COLLECTION (products with isFeatured: true)
+         II. KNOW YOUR WATCH: automatic or quartz? (photo + comparison +
+         the Instagram reel from STORE.learnReel, drawn by js/pages/home.js)
+         =================================================================== -->
+    <section class="section section--alt" id="learn" aria-labelledby="learnTitle">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">II</span><span data-i18n="learn.eyebrow">Know your watch</span></p>
+          <h2 class="title" id="learnTitle" data-i18n="learn.title">Automatic or quartz?</h2>
+          <p class="lead" data-i18n="learn.text"></p>
+          <div class="ticks" aria-hidden="true"></div>
+        </header>
+        <div class="learn">
+          <figure class="learn__photo reveal">
+            <img src="images/seiko-5-automatic.jpg" width="750" height="999" alt="" data-i18n-attr="alt:learn.photoAlt" loading="lazy" decoding="async" />
+            <figcaption data-i18n="learn.photoCaption"></figcaption>
+          </figure>
+          <div class="learn__compare reveal">
+            <div class="learn__card learn__card--auto">
+              <h3 class="learn__card-title" data-i18n="learn.autoTitle">Automatic</h3>
+              <ul class="learn__list">
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.auto1"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.auto2"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.auto3"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.auto4"></span></li>
+              </ul>
+            </div>
+            <div class="learn__card">
+              <h3 class="learn__card-title" data-i18n="learn.quartzTitle">Quartz</h3>
+              <ul class="learn__list">
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.quartz1"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.quartz2"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.quartz3"></span></li>
+              <li><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span data-i18n="learn.quartz4"></span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="learn__reel reveal" id="learnReel"></div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===================================================================
+         III. FEATURED COLLECTION (products with isFeatured: true)
          =================================================================== -->
     <section class="section" id="featured" aria-labelledby="featuredTitle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">II</span><span data-i18n="home.featuredEyebrow">Selected</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">III</span><span data-i18n="home.featuredEyebrow">Selected</span></p>
           <h2 class="title" id="featuredTitle" data-i18n="home.featuredTitle">The Featured Collection</h2>
           <p class="lead" data-i18n="home.featuredText">Pieces we love for their design, quality and value.</p>
           <div class="ticks" aria-hidden="true"></div>
@@ -194,13 +237,13 @@
 
 
     <!-- ===================================================================
-         III. CURRENT OFFERS (products with an originalPrice) + countdown
+         IV. CURRENT OFFERS (products with an originalPrice) + countdown
          =================================================================== -->
     <section class="section section--alt" id="offers" aria-labelledby="offersTitle">
       <div class="container">
         <div class="offers-head">
           <header class="section-head section-head--start reveal">
-            <p class="eyebrow"><span class="eyebrow__num" lang="en">III</span><span data-i18n="home.offersEyebrow">Offers</span></p>
+            <p class="eyebrow"><span class="eyebrow__num" lang="en">IV</span><span data-i18n="home.offersEyebrow">Offers</span></p>
             <h2 class="title" id="offersTitle" data-i18n="home.offersTitle">Current Offers</h2>
             <p class="lead" data-i18n="home.offersText">Original watches, honest discounts. For a limited time.</p>
             <div class="ticks" aria-hidden="true"></div>
@@ -214,12 +257,12 @@
 
 
     <!-- ===================================================================
-         IV. BRAND STRIP
+         V. BRAND STRIP
          =================================================================== -->
     <section class="section section--tight" aria-labelledby="brandsTitle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">IV</span><span data-i18n="home.brandsEyebrow">Houses</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">V</span><span data-i18n="home.brandsEyebrow">Houses</span></p>
           <h2 class="title title--sm" id="brandsTitle" data-i18n="home.brandsTitle">Brands we carry</h2>
         </header>
       </div>
@@ -229,12 +272,12 @@
 
 
     <!-- ===================================================================
-         V. WHY MAD WATCHES
+         VI. WHY MAD WATCHES
          =================================================================== -->
     <section class="section section--alt" id="why" aria-labelledby="whyTitle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">V</span><span data-i18n="home.whyEyebrow">Why us</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VI</span><span data-i18n="home.whyEyebrow">Why us</span></p>
           <h2 class="title" id="whyTitle" data-i18n="home.whyTitle">Why Mad Watches</h2>
           <div class="ticks" aria-hidden="true"></div>
         </header>
@@ -249,12 +292,12 @@
 
 
     <!-- ===================================================================
-         VI. FIND YOUR WATCH (quiz)
+         VII. FIND YOUR WATCH (quiz)
          =================================================================== -->
     <section class="section" id="quiz" aria-labelledby="quizTitle">
       <div class="container">
         <div class="quiz-invite reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">VI</span><span data-i18n="home.quizEyebrow">Guided</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VII</span><span data-i18n="home.quizEyebrow">Guided</span></p>
           <h2 class="title" id="quizTitle" data-i18n="home.quizTitle">Not sure where to start?</h2>
           <p class="lead" data-i18n="home.quizText">Answer four quick questions and we'll suggest watches that suit you.</p>
           <button class="btn" type="button" data-open-quiz><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 4.5v1.5M12 18v1.5M4.5 12H6M18 12h1.5M12 12l-2.6-2.8M12 12l4.2-2.4"/></svg><span data-i18n="home.quizButton">Start the quiz</span></button>
@@ -264,7 +307,7 @@
 
 
     <!-- ===================================================================
-         VII. REAL CUSTOMER REVIEWS
+         VIII. REAL CUSTOMER REVIEWS
          A line of text + a button to the Instagram highlights. If
          STORE.reviewVideo (js/products.js) has a link, that one video is
          shown too. Built by renderRealReviews() in js/main.js.
@@ -272,7 +315,7 @@
     <section class="section section--alt" id="reviews" aria-labelledby="reviewsTitle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">VII</span><span data-i18n="home.reviewsEyebrow">Customers</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">VIII</span><span data-i18n="home.reviewsEyebrow">Customers</span></p>
           <h2 class="title" id="reviewsTitle" data-i18n="reviews.title">What our customers say</h2>
           <div class="ticks" aria-hidden="true"></div>
         </header>
@@ -282,7 +325,7 @@
 
 
     <!-- ===================================================================
-         VIII. ABOUT TEASER
+         IX. ABOUT TEASER
          =================================================================== -->
     <section class="section" aria-labelledby="aboutTitle">
       <div class="container split">
@@ -290,7 +333,7 @@
           <img src="images/logo-plain.jpg" width="1200" height="896" alt="Mad Watches" loading="lazy" decoding="async" />
         </div>
         <div class="split__text reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">VIII</span><span data-i18n="home.aboutEyebrow">Our story</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">IX</span><span data-i18n="home.aboutEyebrow">Our story</span></p>
           <h2 class="title" id="aboutTitle" data-i18n="home.aboutTitle">Less, but better.</h2>
           <p class="lead" data-i18n="home.aboutText"></p>
           <a class="link" href="about.html"><span data-i18n="home.aboutLink">Read our story</span> <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -300,14 +343,14 @@
 
 
     <!-- ===================================================================
-         IX. FOLLOW OUR WORLD (social cards + WhatsApp chat)
+         X. FOLLOW OUR WORLD (social cards + WhatsApp chat)
          The cards are built by js/pages/home.js from the links in STORE
          (js/products.js). An empty link ("") hides its card automatically.
          =================================================================== -->
     <section class="section section--alt follow" aria-labelledby="followTitle">
       <div class="container">
         <header class="section-head reveal">
-          <p class="eyebrow"><span class="eyebrow__num" lang="en">IX</span><span data-i18n="home.followEyebrow">Stay close</span></p>
+          <p class="eyebrow"><span class="eyebrow__num" lang="en">X</span><span data-i18n="home.followEyebrow">Stay close</span></p>
           <h2 class="title" id="followTitle" data-i18n="home.followTitle">Follow our world</h2>
           <p class="lead" data-i18n="home.followText"></p>
         </header>

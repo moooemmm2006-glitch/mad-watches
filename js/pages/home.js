@@ -107,8 +107,19 @@ function renderOrgData() {
   } catch (err) { /* keep the original block */ }
 }
 
+/* ---------- "Automatic or quartz?": the reel next to the comparison ---------- */
+function renderLearn() {
+  const box = document.getElementById("learnReel");
+  if (!box) return;
+  const reel = instagramPostUrl(STORE.learnReel);
+  box.innerHTML = reel ? instagramEmbedHTML(reel, t("learn.watch")) : "";
+  box.hidden = !reel;
+  observeInstagram(box);
+}
+
 function renderHome() {
   setPageMeta({ title: t("meta.home"), description: t("meta.homeDesc") });
+  renderLearn();
   renderFeatured();
   renderOffers();
   renderBrandStrip();
