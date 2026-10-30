@@ -26,12 +26,14 @@
    1. NAVBAR LINKS
    ------------------------------------------------------------------------- */
 const NAV_LINKS = [
-  { id: "home",    href: "index.html",    key: "nav.home" },
-  { id: "shop",    href: "products.html", key: "nav.shop" },
-  { id: "brands",  href: "brands.html",   key: "nav.brands" },
-  { id: "offers",  href: "offers.html",   key: "nav.offers" },
-  { id: "about",   href: "about.html",    key: "nav.about" },
-  { id: "contact", href: "contact.html",  key: "nav.contact" }
+  { id: "home",        href: "index.html",       key: "nav.home" },
+  { id: "shop",        href: "products.html",    key: "nav.shop" },
+  { id: "bestsellers", href: "bestsellers.html", key: "nav.bestSellers" },
+  { id: "brands",      href: "brands.html",      key: "nav.brands" },
+  { id: "offers",      href: "offers.html",      key: "nav.offers" },
+  { id: "reviews",     href: "reviews.html",     key: "nav.reviews" },
+  { id: "about",       href: "about.html",       key: "nav.about" },
+  { id: "contact",     href: "contact.html",     key: "nav.contact" }
 ];
 
 // Which link is highlighted: <body data-page="shop">
@@ -179,7 +181,9 @@ function renderFooter() {
         <ul class="footer__links">
           <li><a href="products.html" data-i18n="footer.all"></a></li>
           <li><a href="products.html?sort=newest" data-i18n="footer.new"></a></li>
+          <li><a href="bestsellers.html" data-i18n="nav.bestSellers"></a></li>
           <li><a href="offers.html" data-i18n="footer.offers"></a></li>
+          <li><a href="reviews.html" data-i18n="nav.reviews"></a></li>
           <li><a href="brands.html" data-i18n="footer.brands"></a></li>
           <li><a href="index.html#quiz" data-i18n="footer.quiz"></a></li>
         </ul>

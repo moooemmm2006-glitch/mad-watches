@@ -55,6 +55,7 @@ edit the file, save, and publish. Every page updates by itself: home, shop filte
 | `waterResistance` | In metres (number), e.g. `100`. | مقاومة الماء بالمتر (رقم). |
 | `inStock` / `stockCount` | `stockCount: 0` or `inStock: false` → "Out of stock". 1–3 → "Only 3 left". | `stockCount: 0` أو `inStock: false` تعني غير متوفر، ومن 1 إلى 3 تُظهر "متبقٍ 3 فقط". |
 | `isNew` | `true` shows a "New" badge. | `true` تُظهر علامة "جديد". |
+| `bestSeller` | `true` shows it on the Best Seller page (men's or women's section, from `gender`). The reels there are in `STORE.bestSellers`. | `true` تُظهرها في صفحة الأكثر مبيعاً (رجالي أو حريمي حسب `gender`). الريلز موجودة في `STORE.bestSellers`. |
 | `isFeatured` | `true` puts it in the home page's Featured collection. | `true` تضعه في المجموعة المميزة بالصفحة الرئيسية. |
 | `createdAt` | Date added, `"YYYY-MM-DD"`. Used by "Newest" sorting. | تاريخ الإضافة، ويُستخدم في ترتيب "الأحدث". |
 | `images` | 1–4 photos. The first is the main photo; the second appears on hover. | من 1 إلى 4 صور. الأولى هي الرئيسية والثانية تظهر عند المرور بالماوس. |

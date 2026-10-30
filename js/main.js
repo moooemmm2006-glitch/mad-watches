@@ -272,30 +272,52 @@ function reviewVideoUrl() {
   return /^https:\/\/(www\.)?instagram\.com\/(p|reel|reels|tv)\/[\w-]+/.test(url) ? url : "";
 }
 
+// An Instagram reel/post link → "https://www.instagram.com/reel/ABC/" (or "" if it isn't one)
+function instagramPostUrl(url) {
+  const m = String(url || "").trim().match(/^https:\/\/(www\.)?instagram\.com\/(p|reel|reels|tv)\/([\w-]+)/);
+  return m ? `https://www.instagram.com/${m[2] === "reels" ? "reel" : m[2]}/${m[3]}/` : "";
+}
+
+// The embedded Instagram post (the script that draws it is loaded by observeInstagram)
+function instagramEmbedHTML(url, label) {
+  return `<div class="review-video">
+      <blockquote class="instagram-media" data-instgrm-permalink="${escapeHTML(url)}" data-instgrm-version="14">
+        <a href="${escapeHTML(url)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label || t("reviews.watch"))}</a>
+      </blockquote>
+    </div>`;
+}
+
+// Loads Instagram's script only when an embedded post is near the screen
+function observeInstagram(root) {
+  const embed = root.querySelector(".instagram-media");
+  if (!embed) return;
+  if (!("IntersectionObserver" in window)) return loadInstagramEmbed();
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { io.disconnect(); loadInstagramEmbed(); }
+  }, { rootMargin: "300px" });
+  io.observe(embed);
+}
+
+// Where "See reviews" goes: the reviews highlight, or the Instagram account
+function reviewsLink() {
+  return /^https:\/\/(www\.)?instagram\.com\//.test(STORE.reviewsHighlight || "") ? STORE.reviewsHighlight : STORE.instagram;
+}
+
 function realReviewsHTML() {
   const video = reviewVideoUrl();
+  const link = reviewsLink();
   return `
     <p class="real-reviews__text">${t("reviews.text")}</p>
-    ${STORE.instagram ? `<a class="btn real-reviews__btn" href="${escapeHTML(STORE.instagram)}" target="_blank" rel="noopener noreferrer"
+    ${link ? `<a class="btn real-reviews__btn" href="${escapeHTML(link)}" target="_blank" rel="noopener noreferrer"
       aria-label="${escapeHTML(t("reviews.cta") + " " + t("social.newTab"))}">${icon("instagram")}<span>${t("reviews.cta")}</span></a>` : ""}
-    ${video ? `<div class="review-video">
-      <blockquote class="instagram-media" data-instgrm-permalink="${escapeHTML(video)}" data-instgrm-version="14">
-        <a href="${escapeHTML(video)}" target="_blank" rel="noopener noreferrer">${t("reviews.watch")}</a>
-      </blockquote>
-    </div>` : ""}`;
+    ${video ? instagramEmbedHTML(video) : ""}`;
 }
 
 // Fills every [data-real-reviews] box; the Instagram script loads only when the video is near the screen
 function renderRealReviews(root) {
   (root || document).querySelectorAll("[data-real-reviews]").forEach((box) => {
     box.innerHTML = realReviewsHTML();
-    const video = box.querySelector(".review-video");
-    if (!video) return;
-    if (!("IntersectionObserver" in window)) return loadInstagramEmbed();
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) { io.disconnect(); loadInstagramEmbed(); }
-    }, { rootMargin: "300px" });
-    io.observe(video);
+    observeInstagram(box);
   });
 }
 

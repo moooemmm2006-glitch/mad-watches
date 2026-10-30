@@ -546,6 +546,11 @@ html[lang="ar"] .hero__tagline {
 }
 
 /* Instagram sets a fixed min-width; let the video fit small phones */
+/* Best Seller page: the reel centered above the watches */
+.best__reel { display: flex; justify-content: center; }
+.best__reel .review-video { margin-top: 0; }
+.best__grid { margin-top: clamp(2.5rem, 6vw, 4rem); }
+
 .review-video .instagram-media {
   width: 100% !important;
   min-width: 0 !important;

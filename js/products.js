@@ -50,6 +50,20 @@ const STORE = {
      Leave it "" and nothing is shown. */
   reviewVideo: "",
 
+  /* reviewsHighlight: the Instagram highlight with the customer reviews.
+     The "See reviews" buttons (home, product pages, reviews page) open it.
+     Leave it "" and they open the Instagram account instead. */
+  reviewsHighlight: "https://www.instagram.com/stories/highlights/18093742604558651/",
+
+  /* --- Best Seller page (bestsellers.html) ---
+     One Instagram reel for the men's section and one for the women's.
+     Watches show there too when they have bestSeller: true in PRODUCTS.
+     Leave a reel "" to hide it. */
+  bestSellers: {
+    men:   { reel: "https://www.instagram.com/reel/DbJUSTQuvIp/" },
+    women: { reel: "https://www.instagram.com/reel/DfIlVsVOY8w/" }
+  },
+
   /* --- Money --- */
   currency: "EGP",
   shippingFee: 80,                 // shipping price for every order
